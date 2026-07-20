@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Posts | Micheal Olaniyi</title>
+  <meta name="description" content="Videos and posts from Micheal Olaniyi: demos, project walkthroughs, and updates." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+  <div class="page-wrap">
+    <header class="site-nav">
+      <div class="site-nav__inner">
+        <a class="brand" href="index.html">Micheal Olaniyi</a>
+        <nav class="nav-right">
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="posts.html">Posts</a></li>
+            <li><a href="avatar.html">Avatar</a></li>
+          </ul>
+          <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <svg class="icon"><use href="assets/icons.svg#i-menu"></use></svg>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="section" style="border-top:none; padding-bottom: var(--space-4);">
+          <p class="eyebrow">Posts</p>
+          <h1 class="display" style="font-size:var(--text-2xl); margin-bottom:var(--space-2);">Videos &amp; updates</h1>
+          <p style="color:var(--text-muted); max-width:60ch;">
+            Demos and posts from around the web: YouTube, LinkedIn, X, all collected
+            here. Subscribe on
+            <a href="https://www.youtube.com/@purepenworld2081" target="_blank" rel="noopener">YouTube</a>
+            for the full backlog.
+          </p>
+        </section>
+
+        <section class="section" style="border-top:none;">
+          <div class="post-grid" id="postGrid"></div>
+        </section>
+
+        <section class="section">
+          <p class="eyebrow">FAQs</p>
+          <h2 class="display" style="margin-bottom:var(--space-2);">Common questions</h2>
+          <p style="color:var(--text-muted); max-width:60ch; margin-bottom:var(--space-6);">
+            Click any question and my digital twin will answer it instantly, no
+            typing required.
+          </p>
+          <div class="faq-list">
+            <a class="faq-item" href="avatar.html?q=1"><span class="faq-item__q"><span class="faq-item__num">Q1</span><span class="faq-item__text">Who is Micheal Olaniyi? Can you give me a quick summary of your background?</span></span><span class="faq-item__cta">Ask the twin<svg class="icon icon--sm"><use href="assets/icons.svg#i-arrow-right"></use></svg></span></a>
+            <a class="faq-item" href="avatar.html?q=2"><span class="faq-item__q"><span class="faq-item__num">Q2</span><span class="faq-item__text">What do you do now? What services do you offer?</span></span><span class="faq-item__cta">Ask the twin<svg class="icon icon--sm"><use href="assets/icons.svg#i-arrow-right"></use></svg></span></a>
+            <a class="faq-item" href="avatar.html?q=3"><span class="faq-item__q"><span class="faq-item__num">Q3</span><span class="faq-item__text">Can I hire you or work with you on a project?</span></span><span class="faq-item__cta">Ask the twin<svg class="icon icon--sm"><use href="assets/icons.svg#i-arrow-right"></use></svg></span></a>
+            <a class="faq-item" href="avatar.html?q=4"><span class="faq-item__q"><span class="faq-item__num">Q4</span><span class="faq-item__text">How can I contact you?</span></span><span class="faq-item__cta">Ask the twin<svg class="icon icon--sm"><use href="assets/icons.svg#i-arrow-right"></use></svg></span></a>
+            <a class="faq-item" href="avatar.html?q=5"><span class="faq-item__q"><span class="faq-item__num">Q5</span><span class="faq-item__text">Tell me about the AI Banking Assistant you built.</span></span><span class="faq-item__cta">Ask the twin<svg class="icon icon--sm"><use href="assets/icons.svg#i-arrow-right"></use></svg></span></a>
+            <a class="faq-item" href="avatar.html?q=6"><span class="faq-item__q"><span class="faq-item__num">Q6</span><span class="faq-item__text">What is the CFO AI Assistant?</span></span><span class="faq-item__cta">Ask the twin<svg class="icon icon--sm"><use href="assets/icons.svg#i-arrow-right"></use></svg></span></a>
+            <a class="faq-item" href="avatar.html?q=7"><span class="faq-item__q"><span class="faq-item__num">Q7</span><span class="faq-item__text">What other projects have you worked on?</span></span><span class="faq-item__cta">Ask the twin<svg class="icon icon--sm"><use href="assets/icons.svg#i-arrow-right"></use></svg></span></a>
+            <a class="faq-item" href="avatar.html?q=8"><span class="faq-item__q"><span class="faq-item__num">Q8</span><span class="faq-item__text">What is your experience with RAG (Retrieval-Augmented Generation)?</span></span><span class="faq-item__cta">Ask the twin<svg class="icon icon--sm"><use href="assets/icons.svg#i-arrow-right"></use></svg></span></a>
+            <a class="faq-item" href="avatar.html?q=9"><span class="faq-item__q"><span class="faq-item__num">Q9</span><span class="faq-item__text">Do you have experience with multi-agent systems and agentic AI?</span></span><span class="faq-item__cta">Ask the twin<svg class="icon icon--sm"><use href="assets/icons.svg#i-arrow-right"></use></svg></span></a>
+            <a class="faq-item" href="avatar.html?q=10"><span class="faq-item__q"><span class="faq-item__num">Q10</span><span class="faq-item__text">Have you built voice AI or voice agents?</span></span><span class="faq-item__cta">Ask the twin<svg class="icon icon--sm"><use href="assets/icons.svg#i-arrow-right"></use></svg></span></a>
+            <a class="faq-item" href="avatar.html?q=11"><span class="faq-item__q"><span class="faq-item__num">Q11</span><span class="faq-item__text">What did you achieve at Smartcash PSB in customer value management?</span></span><span class="faq-item__cta">Ask the twin<svg class="icon icon--sm"><use href="assets/icons.svg#i-arrow-right"></use></svg></span></a>
+            <a class="faq-item" href="avatar.html?q=12"><span class="faq-item__q"><span class="faq-item__num">Q12</span><span class="faq-item__text">What tech stack and skills do you work with?</span></span><span class="faq-item__cta">Ask the twin<svg class="icon icon--sm"><use href="assets/icons.svg#i-arrow-right"></use></svg></span></a>
+            <a class="faq-item" href="avatar.html?q=13"><span class="faq-item__q"><span class="faq-item__num">Q13</span><span class="faq-item__text">What certifications do you hold?</span></span><span class="faq-item__cta">Ask the twin<svg class="icon icon--sm"><use href="assets/icons.svg#i-arrow-right"></use></svg></span></a>
+            <a class="faq-item" href="avatar.html?q=14"><span class="faq-item__q"><span class="faq-item__num">Q14</span><span class="faq-item__text">What is your education background?</span></span><span class="faq-item__cta">Ask the twin<svg class="icon icon--sm"><use href="assets/icons.svg#i-arrow-right"></use></svg></span></a>
+            <a class="faq-item" href="avatar.html?q=15"><span class="faq-item__q"><span class="faq-item__num">Q15</span><span class="faq-item__text">How did you become an AI engineer? What path or courses would you recommend?</span></span><span class="faq-item__cta">Ask the twin<svg class="icon icon--sm"><use href="assets/icons.svg#i-arrow-right"></use></svg></span></a>
+            <a class="faq-item" href="avatar.html?q=16"><span class="faq-item__q"><span class="faq-item__num">Q16</span><span class="faq-item__text">What is your experience with data analytics and business intelligence?</span></span><span class="faq-item__cta">Ask the twin<svg class="icon icon--sm"><use href="assets/icons.svg#i-arrow-right"></use></svg></span></a>
+            <a class="faq-item" href="avatar.html?q=17"><span class="faq-item__q"><span class="faq-item__num">Q17</span><span class="faq-item__text">Where are you based? Do you work remotely with international clients?</span></span><span class="faq-item__cta">Ask the twin<svg class="icon icon--sm"><use href="assets/icons.svg#i-arrow-right"></use></svg></span></a>
+            <a class="faq-item" href="avatar.html?q=18"><span class="faq-item__q"><span class="faq-item__num">Q18</span><span class="faq-item__text">How much do you charge? What are your rates?</span></span><span class="faq-item__cta">Ask the twin<svg class="icon icon--sm"><use href="assets/icons.svg#i-arrow-right"></use></svg></span></a>
+            <a class="faq-item" href="avatar.html?q=19"><span class="faq-item__q"><span class="faq-item__num">Q19</span><span class="faq-item__text">Where can I see your code or follow your work?</span></span><span class="faq-item__cta">Ask the twin<svg class="icon icon--sm"><use href="assets/icons.svg#i-arrow-right"></use></svg></span></a>
+            <a class="faq-item" href="avatar.html?q=20"><span class="faq-item__q"><span class="faq-item__num">Q20</span><span class="faq-item__text">What industries have you worked in?</span></span><span class="faq-item__cta">Ask the twin<svg class="icon icon--sm"><use href="assets/icons.svg#i-arrow-right"></use></svg></span></a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <span>&copy; 2026 Micheal Olaniyi</span>
+        <a class="btn btn--indigo btn--sm" href="avatar.html">Chat with my digital twin</a>
+      </div>
+    </footer>
+  </div>
+  <script src="js/nav.js"></script>
+  <script src="js/posts-data.js"></script>
+</body>
+</html>

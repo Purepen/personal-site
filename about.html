@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About | Micheal Olaniyi</title>
+  <meta name="description" content="Micheal Olaniyi's background: current work, projects, skills, certifications and conferences." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+  <div class="page-wrap">
+    <header class="site-nav">
+      <div class="site-nav__inner">
+        <a class="brand" href="index.html">Micheal Olaniyi</a>
+        <nav class="nav-right">
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="posts.html">Posts</a></li>
+            <li><a href="avatar.html">Avatar</a></li>
+          </ul>
+          <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <svg class="icon"><use href="assets/icons.svg#i-menu"></use></svg>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="section" style="border-top:none; padding-bottom: var(--space-6);">
+          <p class="eyebrow">About</p>
+          <h1 class="display" style="font-size:var(--text-2xl); margin-bottom:var(--space-4);">A bit about me</h1>
+          <div class="prose">
+            <p>
+              I'm Micheal Olaniyi, an AI/ML Engineer and data professional based in
+              Lagos, Nigeria. I have 6+ years of experience in data analytics (5 of
+              them using data professionally day to day), and these days I specialize
+              in building production-ready LLM systems, intelligent agents and
+              automations: voice AI, multi-agent applications, and RAG pipelines that
+              actually ship.
+            </p>
+            <p>
+              My path ran from statistics field work, through data analytics and
+              business intelligence, into machine learning, and now AI engineering,
+              so I bring both the business-analytics grounding and the hands-on
+              engineering to every AI system I build.
+            </p>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="display">What I do now</h2>
+          <div class="grid-2">
+            <div class="card">
+              <h3>Freelance AI/ML Engineer</h3>
+              <p class="entry__date" style="margin-bottom:var(--space-2);">since Aug 2024</p>
+              <p>
+                I build production-ready AI systems and multi-agent applications for
+                clients. Highlights: a CFO AI Assistant with 95%+ accuracy on an
+                advanced RAG pipeline; an AI Banking Assistant serving 700+ customers
+                with secure 2FA authentication; an 80% improvement in RAG response
+                precision; and real-time voice interaction with sub-2-second
+                processing.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Business Intelligence / CVM Manager, Smartcash PSB (Airtel)</h3>
+              <p class="entry__date" style="margin-bottom:var(--space-2);">since Apr 2023</p>
+              <p>
+                I lead customer value management and business intelligence. I helped
+                achieve a 68.9% increase in revenue-earning customers within 6 months,
+                cut monthly churn by 30% with data-driven retention strategies, built
+                Python automation that turned a full-day reporting process into a
+                sub-minute one (a 1,440x efficiency improvement), and designed
+                executive Power BI dashboards for real-time business metrics.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="display">Projects I'm proud of</h2>
+          <div class="entry-list">
+            <div class="entry">
+              <div class="entry__meta"><span class="entry__title">Avatar (Digital Twin)</span><span class="entry__date">In progress</span></div>
+              <p class="entry__desc">A conversational digital twin: visitors chat with an AI version of me trained on my real experience, with the option for me to jump into the conversation live from an admin dashboard. Built with the OpenAI Agents SDK, FastAPI, Supabase and a vanilla TypeScript frontend, streamed over SSE.</p>
+              <div class="entry__tags"><span class="tag">OpenAI Agents SDK</span><span class="tag">FastAPI</span><span class="tag">TypeScript</span><span class="tag">Supabase</span></div>
+              <p style="margin-top:var(--space-2);"><a href="avatar.html">Try it &rarr;</a> &middot; <a href="https://github.com/Purepen/avatar" target="_blank" rel="noopener">Repo &rarr;</a></p>
+            </div>
+            <div class="entry">
+              <div class="entry__meta"><span class="entry__title">Research AI</span><span class="entry__date">Live</span></div>
+              <p class="entry__desc">A free tool that helps students and professionals get unstuck at the start of a research project: choosing a topic, deriving a clear specification, and finding the right materials, so the blank page stops being the hardest part.</p>
+              <div class="entry__tags"><span class="tag">Python</span><span class="tag">LLM</span><span class="tag">RAG</span></div>
+              <p style="margin-top:var(--space-2);"><a href="https://github.com/Purepen/research-assistant" target="_blank" rel="noopener">Repo &rarr;</a></p>
+            </div>
+            <div class="entry">
+              <div class="entry__meta"><span class="entry__title">AI Banking Assistant</span><span class="entry__date">2025</span></div>
+              <p class="entry__desc">Voice-enabled banking system with 8 specialized agents, secure 2FA and real-time processing, serving 700+ users at sub-2-second response times.</p>
+              <div class="entry__tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">AsyncIO</span><span class="tag">GPT-4o-mini</span><span class="tag">Whisper</span><span class="tag">TTS</span></div>
+              <p style="margin-top:var(--space-2);"><a href="https://youtu.be/Hvwg5XZ3TR0" target="_blank" rel="noopener">Watch the demo &rarr;</a></p>
+            </div>
+            <div class="entry">
+              <div class="entry__meta"><span class="entry__title">CFO AI Assistant v2</span><span class="entry__date">2025</span></div>
+              <p class="entry__desc">Multi-agent financial intelligence for Nigerian bank CFOs with intelligent query routing and a RAG pipeline at 95%+ accuracy.</p>
+              <div class="entry__tags"><span class="tag">Claude</span><span class="tag">LangChain</span><span class="tag">LangGraph</span><span class="tag">ChromaDB</span></div>
+              <p style="margin-top:var(--space-2);"><a href="https://youtu.be/Hmk_OsMPNt0" target="_blank" rel="noopener">Watch the demo &rarr;</a> &middot; <a href="https://github.com/Purepen/CFO-ai-assistant" target="_blank" rel="noopener">v1 repo</a></p>
+            </div>
+            <div class="entry">
+              <div class="entry__meta"><span class="entry__title">AI-Powered Portfolio Website</span><span class="entry__date">2025</span></div>
+              <p class="entry__desc">My portfolio is an AI: a RAG-based conversational interface (Claude + OpenAI embeddings + Supabase pgvector) where visitors explore my projects, skills and experience through natural language.</p>
+              <div class="entry__tags"><span class="tag">Next.js 15</span><span class="tag">TypeScript</span><span class="tag">Vercel AI SDK</span></div>
+              <p style="margin-top:var(--space-2);"><a href="https://purepen.vercel.app" target="_blank" rel="noopener">Visit it &rarr;</a></p>
+            </div>
+            <div class="entry">
+              <div class="entry__meta"><span class="entry__title">Credit Risk Model &amp; Loan Application Approval</span><span class="entry__date">2024 – 2025</span></div>
+              <p class="entry__desc">ML models for credit risk assessment and loan approval prediction.</p>
+              <div class="entry__tags"><span class="tag">Scikit-learn</span><span class="tag">XGBoost</span></div>
+              <p style="margin-top:var(--space-2);"><a href="https://github.com/Purepen/Loan_application_approval" target="_blank" rel="noopener">Repo &rarr;</a></p>
+            </div>
+            <div class="entry">
+              <div class="entry__meta"><span class="entry__title">Customer Analytics Dashboard</span><span class="entry__date">2023</span></div>
+              <p class="entry__desc">Churn prediction and revenue analytics platform built during my Smartcash PSB work.</p>
+              <div class="entry__tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">Tableau</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="display">Skills</h2>
+          <div class="grid-2">
+            <div class="card">
+              <h3>AI / ML engineering</h3>
+              <p>LangChain, LangGraph, LangSmith, OpenAI GPT-4o family, Claude, prompt engineering, function/tool calling, fine-tuning (LoRA/PEFT, QLoRA), multi-agent systems, agentic AI, voice agents (Whisper, TTS), RAG and semantic search (ChromaDB, FAISS, Pinecone), n8n workflow and voice-agent automation, PyTorch, TensorFlow, Scikit-learn, NLP (BERT, NLTK).</p>
+            </div>
+            <div class="card">
+              <h3>Full stack &amp; data infrastructure</h3>
+              <p>Python, SQL, JavaScript/TypeScript, R; React, Next.js, Tailwind, FastAPI, Node.js/Express, REST APIs, AsyncIO; PostgreSQL, MongoDB, MySQL, SQLite, BigQuery, Supabase, Snowflake, Airflow, Kafka, dbt.</p>
+            </div>
+            <div class="card">
+              <h3>Cloud &amp; deployment</h3>
+              <p>AWS (S3, Lambda, App Runner, SageMaker, CloudFront, Bedrock), Google Cloud Platform, Microsoft Azure, Vercel, Docker, Terraform, GitHub Actions, Grafana.</p>
+            </div>
+            <div class="card">
+              <h3>BI &amp; analytics</h3>
+              <p>Power BI, Tableau, Looker, statistical analysis, data visualization.</p>
+            </div>
+            <div class="card">
+              <h3>Growth &amp; CVM</h3>
+              <p>Churn/retention strategy, A/B testing, campaign optimization, CRM automation, WebEngage, audience segmentation, attribution modeling.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="display">Licences &amp; certifications</h2>
+          <p style="color:var(--text-muted); margin-top:calc(var(--space-6) * -1); margin-bottom:var(--space-6);">18 in total.</p>
+
+          <h3 style="margin-bottom:var(--space-3);">AI engineering</h3>
+          <div class="entry-list" style="margin-bottom:var(--space-7);">
+            <div class="entry cert-entry">
+              <div class="cert-entry__row">
+                <div class="cert-entry__thumb"><img src="assets/certs/production-track.jpg" alt="AI Engineer Production Track certificate" loading="lazy" /></div>
+                <div>
+                  <a href="https://www.udemy.com/certificate/UC-e38dc130-693c-42b6-9ddc-8b2276c480e8/" target="_blank" rel="noopener" class="entry__title">AI Engineer Production Track: Deploy LLMs &amp; Agents at scale</a>
+                  <p class="entry__date" style="margin:2px 0 var(--space-2);">Udemy, Jul 2026 &middot; 4 weeks</p>
+                  <p class="entry__desc">A deployment-focused track where I learned to ship full-stack AI applications to Vercel, AWS, GCP and Azure. I worked hands-on with AWS Lambda, App Runner, Bedrock, SageMaker and Bedrock AgentCore, containerized everything with Docker, and managed infrastructure with Terraform and GitHub Actions. It covers deploying RAG pipelines and multi-agent MCP systems as production SaaS applications, complete with user management and subscriptions, built for real-world scalability, security and observability.</p>
+                </div>
+              </div>
+            </div>
+            <div class="entry cert-entry">
+              <div class="cert-entry__row">
+                <div class="cert-entry__thumb"><img src="assets/certs/n8n-builder.jpg" alt="AI Automation Builder with n8n certificate" loading="lazy" /></div>
+                <div>
+                  <a href="https://drive.google.com/file/d/1wgv8RMhnP-eh8esaemk0_eMJ4XRldaKy/view" target="_blank" rel="noopener" class="entry__title">AI Automation Builder with n8n</a>
+                  <p class="entry__date" style="margin:2px 0 var(--space-2);">Udemy, May 2026 &middot; 3 weeks</p>
+                  <p class="entry__desc">Three weeks building autonomous agents in n8n using entirely free tools. I built a portfolio-rebalancing agent that reads live equity data from Google Sheets and emails rebalancing decisions, a voice-enabled RAG agent using ElevenLabs and Supabase, and a capstone sales-prospecting agent that scrapes leads with Firecrawl and books demos straight into Pipedrive CRM. I also self-hosted n8n with Docker and ran agents against local models via Ollama.</p>
+                </div>
+              </div>
+            </div>
+            <div class="entry cert-entry">
+              <div class="cert-entry__row">
+                <div class="cert-entry__thumb"><img src="assets/certs/micro1-consulting-assessment.jpg" alt="AI/ML Engineer consulting assessment certificate" loading="lazy" /></div>
+                <div>
+                  <a href="https://drive.google.com/file/d/1840N2x6W5sU9qPtrNfROE0zNLUVNCjQM/view" target="_blank" rel="noopener" class="entry__title">AI/ML Engineer consulting assessment</a>
+                  <p class="entry__desc">micro1 Recruiting, May 2026</p>
+                </div>
+              </div>
+            </div>
+            <div class="entry cert-entry">
+              <div class="cert-entry__row">
+                <div class="cert-entry__thumb"><img src="assets/certs/agentic-track.jpg" alt="AI Engineer Agentic Track certificate" loading="lazy" /></div>
+                <div>
+                  <a href="https://www.udemy.com/certificate/UC-5dbbd488-f0ec-4d34-b9cb-3799c5108bd0/" target="_blank" rel="noopener" class="entry__title">AI Engineer Agentic Track</a>
+                  <p class="entry__date" style="margin:2px 0 var(--space-2);">Udemy, Mar 2026 &middot; 6 weeks</p>
+                  <p class="entry__desc">A deep dive into agentic AI architectures, frameworks and protocols, especially MCP (Model Context Protocol). I built 8 agent solutions capable of making decisions and taking action, worked across OpenAI, Claude, Gemini and DeepSeek APIs, built custom MCP servers (both local stdio-based and remote streamable deployments), and used the Claude Agent SDK as a full agent harness.</p>
+                </div>
+              </div>
+            </div>
+            <div class="entry cert-entry">
+              <div class="cert-entry__row">
+                <div class="cert-entry__thumb"><img src="assets/certs/core-track.png" alt="AI Engineer Core Track certificate" loading="lazy" /></div>
+                <div>
+                  <a href="https://drive.google.com/file/d/1vh8YIl2T_Ba_jjAdpvTD1N1ZTX3MsCyC/view" target="_blank" rel="noopener" class="entry__title">AI Engineer Core Track: LLM Engineering, RAG, QLoRA, Agents</a>
+                  <p class="entry__date" style="margin:2px 0 var(--space-2);">Ligency/Udemy, Dec 2025 &middot; 58.5 hours</p>
+                  <p class="entry__desc">A project-heavy foundation in LLM engineering: building RAG pipelines, fine-tuning open models with QLoRA, and curating training data for real commercial use cases. It builds toward an end-to-end agentic AI project solving a genuinely complex commercial problem, the very course this digital twin grew out of.</p>
+                </div>
+              </div>
+            </div>
+            <div class="entry cert-entry">
+              <div class="cert-entry__row">
+                <div class="cert-entry__thumb"><img src="assets/certs/mcp-hands-on-agentic-ai.png" alt="Model Context Protocol (MCP): Hands-On with Agentic AI certificate" loading="lazy" /></div>
+                <div>
+                  <a href="https://drive.google.com/file/d/18jGdt5sPcXFx2WXrs31myfmPvzfb2UgD/view" target="_blank" rel="noopener" class="entry__title">Model Context Protocol (MCP): Hands-On with Agentic AI</a>
+                  <p class="entry__desc">LinkedIn Learning, Dec 2025</p>
+                </div>
+              </div>
+            </div>
+            <div class="entry cert-entry">
+              <div class="cert-entry__row">
+                <div class="cert-entry__thumb"><img src="assets/certs/mcp-a2a-agents.jpg" alt="Hands-On AI: Building AI Agents with MCP and A2A certificate" loading="lazy" /></div>
+                <div>
+                  <a href="https://drive.google.com/file/d/1CoX-211FLYRziL7h1egBU_118ZlunZSA/view" target="_blank" rel="noopener" class="entry__title">Hands-On AI: Building AI Agents with MCP and A2A</a>
+                  <p class="entry__desc">LinkedIn Learning, Dec 2025</p>
+                </div>
+              </div>
+            </div>
+            <div class="entry cert-entry">
+              <div class="cert-entry__row">
+                <div class="cert-entry__thumb"><img src="assets/certs/career-essentials-generative-ai.png" alt="Career Essentials in Generative AI certificate" loading="lazy" /></div>
+                <div>
+                  <a href="https://www.linkedin.com/learning/certificates/7fc629b7a7486c14740d0d77b343f897954f58ebffbd6da200a814094c067ff6" target="_blank" rel="noopener" class="entry__title">Career Essentials in Generative AI</a>
+                  <p class="entry__desc">Microsoft &amp; LinkedIn, Jun 2025</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 style="margin-bottom:var(--space-3);">Data &amp; analytics</h3>
+          <div class="entry-list">
+            <div class="entry cert-entry">
+              <div class="cert-entry__row">
+                <div class="cert-entry__thumb"><img src="assets/certs/fabric-analytics-engineer.png" alt="Microsoft Certified: Fabric Analytics Engineer Associate certificate" loading="lazy" /></div>
+                <div>
+                  <a href="https://learn.microsoft.com/en-us/users/purepen-1376/credentials/8b098d6a3ff9e285" target="_blank" rel="noopener" class="entry__title">Microsoft Certified: Fabric Analytics Engineer Associate</a>
+                  <p class="entry__desc">Microsoft, Dec 2024 (ID 8B098D6A3FF9E285)</p>
+                </div>
+              </div>
+            </div>
+            <div class="entry cert-entry">
+              <div class="cert-entry__row">
+                <div class="cert-entry__thumb"><img src="assets/certs/applied-data-science-lab.png" alt="Applied Data Science Lab certificate" loading="lazy" /></div>
+                <div>
+                  <a href="https://www.credly.com/badges/3d3283e9-195f-4518-9a8f-03fe9c812020/linked_in_profile" target="_blank" rel="noopener" class="entry__title">Applied Data Science Lab</a>
+                  <p class="entry__desc">WorldQuant University, Dec 2024</p>
+                </div>
+              </div>
+            </div>
+            <div class="entry cert-entry">
+              <div class="cert-entry__row">
+                <div class="cert-entry__thumb"><img src="assets/certs/power-bi-data-analyst.png" alt="Microsoft Certified: Power BI Data Analyst Associate certificate" loading="lazy" /></div>
+                <div>
+                  <a href="https://learn.microsoft.com/en-us/users/purepen-1376/credentials/f839d41afeefdf41" target="_blank" rel="noopener" class="entry__title">Microsoft Certified: Power BI Data Analyst Associate</a>
+                  <p class="entry__desc">Microsoft, Apr 2024 (ID F839D41AFEEFDF41)</p>
+                </div>
+              </div>
+            </div>
+            <div class="entry cert-entry">
+              <div class="cert-entry__row">
+                <div class="cert-entry__thumb"><img src="assets/certs/accenture-data-visualization.png" alt="Data Analytics and Visualization Virtual Experience certificate" loading="lazy" /></div>
+                <div>
+                  <a href="https://drive.google.com/file/d/1-59qHNZS3O50sEIrhXPsiIZwosvOxak3/view" target="_blank" rel="noopener" class="entry__title">Data Analytics and Visualization Virtual Experience</a>
+                  <p class="entry__desc">Accenture/Forage, Dec 2022</p>
+                </div>
+              </div>
+            </div>
+            <div class="entry cert-entry">
+              <div class="cert-entry__row">
+                <div class="cert-entry__thumb"><img src="assets/certs/pwc-power-bi-case-experience.png" alt="Power BI in Data Analytics Virtual Case Experience certificate" loading="lazy" /></div>
+                <div>
+                  <a href="https://drive.google.com/file/d/1q69Pqf2sZiWunNFk66M_V4Dw5jUC-KBu/view" target="_blank" rel="noopener" class="entry__title">Power BI in Data Analytics Virtual Case Experience</a>
+                  <p class="entry__desc">PwC/Forage, Dec 2022</p>
+                </div>
+              </div>
+            </div>
+            <div class="entry cert-entry">
+              <div class="cert-entry__row">
+                <div class="cert-entry__thumb"><img src="assets/certs/tata-data-visualisation.png" alt="Data Visualisation: Empowering Business with Effective Insights certificate" loading="lazy" /></div>
+                <div>
+                  <a href="https://drive.google.com/file/d/1ySv3VuFFlgHQlGafyf0Iki8CoBuFgJFm/view" target="_blank" rel="noopener" class="entry__title">Data Visualisation: Empowering Business with Effective Insights</a>
+                  <p class="entry__desc">Tata/Forage, Dec 2022</p>
+                </div>
+              </div>
+            </div>
+            <div class="entry cert-entry">
+              <div class="cert-entry__row">
+                <div class="cert-entry__thumb"><img src="assets/certs/side-hustle-internship.png" alt="Data Analytics Internship Certificate" loading="lazy" /></div>
+                <div>
+                  <a href="https://drive.google.com/file/d/1_DkWIAmPDV74WzTCZqUxfEZ89PyXsqO0/view" target="_blank" rel="noopener" class="entry__title">Data Analytics Internship Certificate</a>
+                  <p class="entry__desc">Side Hustle, Oct 2022 (cohort 6, ID SH-IT-0364438)</p>
+                </div>
+              </div>
+            </div>
+            <div class="entry cert-entry">
+              <div class="cert-entry__row">
+                <div class="cert-entry__thumb"><img src="assets/certs/sololearn-sql.png" alt="SQL Course Completion Certificate" loading="lazy" /></div>
+                <div>
+                  <a href="https://drive.google.com/file/d/1_5RTM3uqSsb-aaQh_HhKfms73eQR4BUd/view" target="_blank" rel="noopener" class="entry__title">SQL Course Completion Certificate</a>
+                  <p class="entry__desc">Sololearn, Oct 2022 (ID CT-2YME5B7L)</p>
+                </div>
+              </div>
+            </div>
+            <div class="entry cert-entry">
+              <div class="cert-entry__row">
+                <div class="cert-entry__thumb"><img src="assets/certs/google-data-analytics.png" alt="Google Data Analytics Professional Certificate" loading="lazy" /></div>
+                <div>
+                  <a href="https://drive.google.com/file/d/1_6hwvZkR5FiZ6tGVTxsW3YXnCcxQcXq7/view" target="_blank" rel="noopener" class="entry__title">Google Data Analytics Professional Certificate</a>
+                  <p class="entry__desc">Google/Coursera, Sep 2022 (8-course specialization incl. SQL, Tableau, R)</p>
+                </div>
+              </div>
+            </div>
+            <div class="entry cert-entry">
+              <div class="cert-entry__row">
+                <div class="cert-entry__thumb"><img src="assets/certs/jobberman-soft-skills.png" alt="Jobberman Soft-Skills Training certificate" loading="lazy" /></div>
+                <div>
+                  <a href="https://drive.google.com/file/d/1_51L_xhBa-0MD3GDznF1chFfQMDy4qW9/view" target="_blank" rel="noopener" class="entry__title">Jobberman Soft-Skills Training</a>
+                  <p class="entry__desc">Jobberman Nigeria/Mastercard Foundation, Sep 2022</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="display">Career history</h2>
+          <div class="entry-list">
+            <div class="entry">
+              <div class="entry__meta"><span class="entry__title">Data Analyst, Interswitch Group</span><span class="entry__date">Apr – Jun 2024</span></div>
+              <p class="entry__desc">Payments analytics: Tableau dashboards for transaction monitoring, SQL pipeline optimization, payment-trend analysis for strategic decisions.</p>
+            </div>
+            <div class="entry">
+              <div class="entry__meta"><span class="entry__title">Data Analyst, Mustard</span><span class="entry__date">Mar – Jun 2023</span></div>
+              <p class="entry__desc">Fintech product analytics: stakeholder presentations that improved financial product adoption by 32%, Python data-cleaning automation that halved prep time, customer segmentation for targeted marketing.</p>
+            </div>
+            <div class="entry">
+              <div class="entry__meta"><span class="entry__title">Data Analyst / Assistant Teacher, JAF College, Abeokuta</span><span class="entry__date">Jan 2021 – Feb 2023</span></div>
+              <p class="entry__desc">Managed student performance data and reporting systems, taught secondary-school mathematics, and built automated grading systems.</p>
+            </div>
+            <div class="entry">
+              <div class="entry__meta"><span class="entry__title">Virtual internships: PwC Legal Switzerland, Tata Group, Accenture</span><span class="entry__date">2022</span></div>
+              <p class="entry__desc">Data analytics programs: legal case analysis, business dashboards, and stakeholder presentations.</p>
+            </div>
+            <div class="entry">
+              <div class="entry__meta"><span class="entry__title">Statistical Officer, National Bureau of Statistics Nigeria</span><span class="entry__date">Sep 2019 – Mar 2020</span></div>
+              <p class="entry__desc">National field surveys and data validation. Where the data journey started.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="display">Education</h2>
+          <div class="entry-list">
+            <div class="entry">
+              <div class="entry__meta"><span class="entry__title">WorldQuant University, BASc in Machine Learning</span><span class="entry__date">Aug 2023 – Dec 2024</span></div>
+            </div>
+            <div class="entry">
+              <div class="entry__meta"><span class="entry__title">Federal University of Agriculture, Abeokuta, B.Sc in Mathematics</span><span class="entry__date">Aug 2018 – Sep 2021</span></div>
+            </div>
+            <div class="entry">
+              <div class="entry__meta"><span class="entry__title">Federal College of Education, Osiele, N.C.E in Mathematics &amp; Chemistry</span><span class="entry__date">Feb 2012 – Sep 2016</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="display">Conferences &amp; the work behind it</h2>
+          <p style="color:var(--text-muted); max-width:64ch; margin-bottom:var(--space-6);">
+            A few moments from the rooms I've been in, and the work on the ground that got me there.
+          </p>
+          <div class="journey-grid">
+            <div class="journey-card">
+              <div class="journey-card__thumb"><img src="assets/journey/reimagining-work-summit.jpg" alt="At the Reimagining Work summit" loading="lazy" /></div>
+              <div class="journey-card__body">
+                <p class="eyebrow journey-kicker">Conference</p>
+                <span class="journey-title">Reimagining Work: People, Culture, Technology</span>
+                <p class="entry__desc">A Lagos tech and culture summit with Interswitch, alongside fellow builders shaping how work gets done.</p>
+              </div>
+            </div>
+            <div class="journey-card">
+              <div class="journey-card__thumb"><img src="assets/journey/bluechip-tech-summit.jpg" alt="At a BlueChip Technologies summit" loading="lazy" /></div>
+              <div class="journey-card__body">
+                <p class="eyebrow journey-kicker">Conference</p>
+                <span class="journey-title">Fintech &amp; AI summit with BlueChip Technologies</span>
+                <p class="entry__desc">Appearing alongside my former Head of Business, on where fintech and AI are headed next.</p>
+              </div>
+            </div>
+            <div class="journey-card">
+              <div class="journey-card__thumb"><img src="assets/journey/datafest-nigeria.jpg" alt="At DataFest Africa" loading="lazy" /></div>
+              <div class="journey-card__body">
+                <p class="eyebrow journey-kicker">Conference</p>
+                <span class="journey-title">DataFest Africa</span>
+                <p class="entry__desc">Attending one of the continent's biggest data community gatherings, trading notes with other data people building across Africa.</p>
+              </div>
+            </div>
+            <div class="journey-card">
+              <div class="journey-card__thumb"><img src="assets/journey/smartcash-field-activation.jpg" alt="Leading a Smartcash customer activation event" loading="lazy" /></div>
+              <div class="journey-card__body">
+                <p class="eyebrow journey-kicker">On the ground</p>
+                <span class="journey-title">Smartcash by Airtel customer activation</span>
+                <p class="entry__desc">The CVM work behind the retention numbers isn't only dashboards, it starts on the street with real customers.</p>
+              </div>
+            </div>
+            <div class="journey-card">
+              <div class="journey-card__thumb"><img src="assets/journey/customer-strategy-whiteboard.jpg" alt="Mapping out a customer segmentation strategy" loading="lazy" /></div>
+              <div class="journey-card__body">
+                <p class="eyebrow journey-kicker">On the ground</p>
+                <span class="journey-title">Mapping a segmentation strategy</span>
+                <p class="entry__desc">Working through customer segments live on the big screen, before they ever become a clean executive dashboard.</p>
+              </div>
+            </div>
+            <div class="journey-card">
+              <div class="journey-card__thumb"><img src="assets/journey/webengage-dashboard-walkthrough.jpg" alt="Walking through a WebEngage customer journey" loading="lazy" /></div>
+              <div class="journey-card__body">
+                <p class="eyebrow journey-kicker">On the ground</p>
+                <span class="journey-title">Walking through a WebEngage journey</span>
+                <p class="entry__desc">One of the automations behind Smartcash's real-time campaigns, built and explained step by step.</p>
+              </div>
+            </div>
+            <div class="journey-card">
+              <div class="journey-card__thumb"><img src="assets/journey/coding-at-my-desk.jpg" alt="Coding at my desk" loading="lazy" /></div>
+              <div class="journey-card__body">
+                <p class="eyebrow journey-kicker">On the ground</p>
+                <span class="journey-title">Where the building actually happens</span>
+                <p class="entry__desc">Most days look like this: two screens, a real problem, and the quiet work of shipping it.</p>
+              </div>
+            </div>
+            <div class="journey-card">
+              <div class="journey-card__thumb"><img src="assets/journey/classroom-visit.jpg" alt="Visiting a local classroom" loading="lazy" /></div>
+              <div class="journey-card__body">
+                <p class="eyebrow journey-kicker">Community</p>
+                <span class="journey-title">Back in a classroom</span>
+                <p class="entry__desc">A reminder of where the instinct to make hard things simpler for people first started.</p>
+              </div>
+            </div>
+            <div class="journey-card">
+              <div class="journey-card__thumb"><img src="assets/journey/nysc-cds-outreach.jpg" alt="Addressing a school assembly during NYSC" loading="lazy" /></div>
+              <div class="journey-card__body">
+                <p class="eyebrow journey-kicker">Community</p>
+                <span class="journey-title">NYSC community development service</span>
+                <p class="entry__desc">Teaching wasn't new to me even before the automated grading systems came along.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="display">What people say</h2>
+          <div class="grid-2">
+            <blockquote class="quote">
+              &ldquo;Micheal is exceptionally proactive and innovative. He played a key
+              role in building an AI-powered website for my small business, which has
+              significantly contributed to our growth and scalability.&rdquo;
+              <cite>Adeshina Tosin, CEO, TOSZ Empire</cite>
+            </blockquote>
+            <blockquote class="quote">
+              &ldquo;His strong data-driven approach to customer retention and churn
+              reduction directly supported revenue-earning customers and delivered
+              measurable business value.&rdquo;
+              <cite>Sheriff Kolapo, Sales &amp; Marketing Manager, Airtel SmartCash PSB</cite>
+            </blockquote>
+            <blockquote class="quote">
+              &ldquo;Micheal brings unmatched energy, reliability, and technical
+              expertise to every engagement. His data proficiency played a critical
+              role in shaping our niche and growth trajectory.&rdquo;
+              <cite>Nosa Nick, CEO, Mustard</cite>
+            </blockquote>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="display">Links &amp; contact</h2>
+          <div class="chip-row">
+            <a class="chip" href="mailto:olaniyimicheal1376@gmail.com">Email</a>
+            <a class="chip" href="https://linkedin.com/in/micheal-olaniyi" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="chip" href="https://github.com/purepen" target="_blank" rel="noopener">GitHub</a>
+            <a class="chip" href="https://www.youtube.com/@purepenworld2081" target="_blank" rel="noopener">YouTube</a>
+            <a class="chip" href="https://purepen.vercel.app" target="_blank" rel="noopener">AI Portfolio</a>
+          </div>
+          <p style="color:var(--text-faint); margin-top:var(--space-4);">Lagos State, Nigeria</p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <span>&copy; 2026 Micheal Olaniyi</span>
+        <a class="btn btn--indigo btn--sm" href="avatar.html">Chat with my digital twin</a>
+      </div>
+    </footer>
+  </div>
+  <script src="js/nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+# Fly.io config for the personal site (static, no backend). Deploy with scripts/deploy.sh.
+# Keep the app name in sync with APP= in deploy.sh.
+app = "micheal"
+primary_region = "lhr"               # same region as the purepen (Avatar) app, for consistency
+
+[http_service]
+  internal_port = 80                 # nginx's default port
+  force_https = true
+  auto_start_machines = true         # wake the machine when a request arrives
+  auto_stop_machines = "stop"        # stop the machine when idle...
+  min_machines_running = 0           # ...all the way to zero (budget mode, same as the Avatar app)
+
+  [[http_service.checks]]
+    method = "GET"
+    path = "/"
+    interval = "15s"
+    timeout = "3s"
+    grace_period = "10s"
+
+[[vm]]
+  size = "shared-cpu-1x"             # cheapest CPU preset
+  memory = "256mb"                   # nginx serving static files needs very little RAM

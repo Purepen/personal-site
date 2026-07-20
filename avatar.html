@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Avatar | Chat with Micheal's digital twin</title>
+  <meta name="description" content="Chat with Micheal Olaniyi's digital twin: ask about his projects, skills, or how to get in touch." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+  <div class="page-wrap">
+    <header class="site-nav">
+      <div class="site-nav__inner">
+        <a class="brand" href="index.html">Micheal Olaniyi</a>
+        <nav class="nav-right">
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="posts.html">Posts</a></li>
+            <li><a href="avatar.html">Avatar</a></li>
+          </ul>
+          <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <svg class="icon"><use href="assets/icons.svg#i-menu"></use></svg>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="embed-wrap">
+        <iframe id="avatarEmbed" title="Chat with Micheal's digital twin" allow="clipboard-write"></iframe>
+      </div>
+    </main>
+  </div>
+  <script src="js/nav.js"></script>
+  <script>
+    (function () {
+      var BASE = "https://purepen.fly.dev";
+      var q = new URLSearchParams(window.location.search).get("q");
+      document.getElementById("avatarEmbed").src =
+        BASE + "/" + (q && /^\d{1,2}$/.test(q) ? "?q=" + q : "");
+    })();
+  </script>
+</body>
+</html>
