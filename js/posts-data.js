@@ -23,7 +23,7 @@ var POSTS = [
     title: "AI Banking Assistant: voice-enabled, 8 specialized agents, sub-2s response",
     url: "https://youtu.be/Hvwg5XZ3TR0",
     date: "2025",
-    excerpt: "A walkthrough of the banking assistant I built: secure 2FA, real-time voice interaction, serving 700+ users.",
+    excerpt: "A walkthrough of the banking assistant I built: secure 2FA, real-time voice interaction, serving 70+ users.",
   },
   {
     platform: "youtube",
