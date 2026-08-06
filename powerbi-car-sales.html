@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Car Sales Performance Dashboard | Micheal Olaniyi</title>
+  <meta name="description" content="A Power BI car sales dashboard with a full star-schema data model, time-intelligence DAX, and interactive bookmarks and navigation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body data-nav="posts.html">
+  <div class="page-wrap">
+    <header class="site-nav">
+      <div class="site-nav__inner">
+        <a class="brand" href="index.html">Micheal Olaniyi</a>
+        <nav class="nav-right">
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="posts.html">Posts</a></li>
+            <li><a href="avatar.html">Avatar</a></li>
+          </ul>
+          <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <svg class="icon"><use href="assets/icons.svg#i-menu"></use></svg>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="section" style="border-top:none; padding-bottom: 0;">
+          <a class="post-back-link" href="posts.html">
+            <svg class="icon icon--sm"><use href="assets/icons.svg#i-arrow-right"></use></svg>
+            All posts
+          </a>
+
+          <div class="post-detail-hero">
+            <p class="eyebrow">Business Intelligence</p>
+            <h1 class="display">Car Sales Performance Dashboard</h1>
+            <p class="post-detail-hero__subtitle">
+              A Power BI dashboard built on a proper star-schema data model, with time-intelligence DAX,
+              bookmarks, and page navigation, turning a raw car sales export into something a sales
+              manager would actually enjoy clicking through.
+            </p>
+            <div class="post-detail-hero__tags">
+              <span class="tag">Power BI</span>
+              <span class="tag">DAX</span>
+              <span class="tag">Power Query</span>
+              <span class="tag">Data modeling</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" style="border-top:none; padding-top: 0;">
+          <div class="prose">
+            <p>
+              As one year folded into the next, I wanted a dashboard that didn't just show numbers but
+              made a sales manager want to explore them. This one is built on a public car sales dataset
+              from Saddam Ansari, and it covers total sales, profit growth, and the patterns hiding
+              inside sales segments, transmission type, car color, and region.
+            </p>
+          </div>
+
+          <div class="stat-grid">
+            <div class="stat-tile"><span class="stat-tile__value">$2.33M</span><span class="stat-tile__label">total sales</span></div>
+            <div class="stat-tile"><span class="stat-tile__value">$292.3K</span><span class="stat-tile__label">total profit</span></div>
+            <div class="stat-tile"><span class="stat-tile__value">+16%</span><span class="stat-tile__label">YoY profit growth</span></div>
+            <div class="stat-tile"><span class="stat-tile__value">10.19K</span><span class="stat-tile__label">total orders</span></div>
+          </div>
+
+          <div class="prose">
+            <h2>A model built to be reused, not just filled in</h2>
+            <p>
+              Cleaning started in Excel, then moved into Power Query to enforce a clean one-to-many
+              relationship against the Order table, which is the transactional fact table at the center
+              of everything. Rather than one flat sheet, I split the data into seven purpose-built
+              tables: Calendar, Customer, Dealer Details, Manager, Order, Product, and Returned Product,
+              each connected back to the Order table by ID. It's more setup work up front, but it's the
+              difference between a report that answers one question and a model that can answer whatever
+              question comes up next.
+            </p>
+
+            <h2>DAX that does more than sum a column</h2>
+            <p>
+              The measures here go past basic totals into real time intelligence: current-period and
+              prior-year profit using <code>SAMEPERIODLASTYEAR</code>, a growth-and-gap composite that
+              reports both the percentage and the dollar delta in one label, and color-coded up/down
+              indicators driven by <code>SWITCH</code> logic so the chart tells you at a glance whether a
+              category is beating or missing its target.
+            </p>
+            <div class="card" style="font-family:var(--font-mono); font-size:var(--text-xs); white-space:pre-wrap; overflow-x:auto; margin: var(--space-5) 0;">#PLY =
+var _blank = ISBLANK(SELECTEDVALUE('Calendar'[Year]))
+VAR _PreviousYear = MAX('Calendar'[Year]) - 1
+VAR _FilteredPLY = CALCULATE([T.Profit], SAMEPERIODLASTYEAR('Calendar'[Date]))
+RETURN
+if(_blank, CALCULATE([T.Profit], 'Calendar'[Year] = _PreviousYear), _FilteredPLY)</div>
+            <p>
+              On top of the measures, the report leans on bookmarks and page navigation to let a viewer
+              move between a sales overview, a profit-based view, and a details page without ever losing
+              context, plus tooltips and an Android-style interface treatment to keep it visually
+              distinct from the usual Power BI default.
+            </p>
+          </div>
+
+          <h2 style="font-size:var(--text-2xl); margin: var(--space-8) 0 var(--space-2);">Explore it</h2>
+          <div class="resource-grid">
+            <a class="resource-item" href="https://lnkd.in/d-sm43We" target="_blank" rel="noopener">
+              <span class="resource-item__label"><span class="resource-item__title">Open the live Power BI report</span><span class="resource-item__sub">Interactive</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+            <a class="resource-item" href="https://lnkd.in/d-ifQuqw" target="_blank" rel="noopener">
+              <span class="resource-item__label"><span class="resource-item__title">Project folder</span><span class="resource-item__sub">Dataset, .pbix, visuals</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+            <a class="resource-item" href="assets/downloads/powerbi-car-sales/methodology-writeup.pdf" target="_blank" rel="noopener">
+              <span class="resource-item__label"><span class="resource-item__title">Download the methodology write-up</span><span class="resource-item__sub">PDF &middot; data model + full DAX library</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+            <a class="resource-item" href="assets/downloads/powerbi-car-sales/report-pages.pdf" target="_blank" rel="noopener">
+              <span class="resource-item__label"><span class="resource-item__title">Download the report pages</span><span class="resource-item__sub">PDF &middot; exported dashboard views</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <span>&copy; 2026 Micheal Olaniyi</span>
+        <a class="btn btn--indigo btn--sm" href="avatar.html">Chat with my digital twin</a>
+      </div>
+    </footer>
+  </div>
+  <script src="js/nav.js"></script>
+</body>
+</html>

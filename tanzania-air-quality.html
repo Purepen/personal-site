@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Forecasting Tanzania's Air Quality | Micheal Olaniyi</title>
+  <meta name="description" content="My first machine learning project: an ARIMA time series model forecasting PM2.5 air quality in Dar es Salaam, Tanzania, cutting error from a baseline of 19.66 to 3.64." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body data-nav="posts.html">
+  <div class="page-wrap">
+    <header class="site-nav">
+      <div class="site-nav__inner">
+        <a class="brand" href="index.html">Micheal Olaniyi</a>
+        <nav class="nav-right">
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="posts.html">Posts</a></li>
+            <li><a href="avatar.html">Avatar</a></li>
+          </ul>
+          <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <svg class="icon"><use href="assets/icons.svg#i-menu"></use></svg>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="section" style="border-top:none; padding-bottom: 0;">
+          <a class="post-back-link" href="posts.html">
+            <svg class="icon icon--sm"><use href="assets/icons.svg#i-arrow-right"></use></svg>
+            All posts
+          </a>
+
+          <div class="post-detail-hero">
+            <p class="eyebrow">Machine Learning &middot; Time Series</p>
+            <h1 class="display">Forecasting Tanzania's Air Quality</h1>
+            <p class="post-detail-hero__subtitle">
+              My first machine learning project: an ARIMA model that learned Dar es Salaam's PM2.5
+              patterns well enough to cut prediction error by more than 80% against a naive baseline.
+            </p>
+            <div class="post-detail-hero__tags">
+              <span class="tag">Time series</span>
+              <span class="tag">ARIMA</span>
+              <span class="tag">statsmodels</span>
+              <span class="tag">EDA</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" style="border-top:none; padding-top: 0;">
+          <div class="prose">
+            <p>
+              This was my first machine learning project, and I chose to start with time series on
+              purpose. Environmental factors shape everyday health in ways that are easy to overlook, so
+              I picked air quality: a dataset of PM2.5 sensor readings from Dar es Salaam, Tanzania,
+              spanning December 2017 through May 2018, sourced from africaopendata.org.
+            </p>
+            <p>
+              Working from a sensor's raw readings, I ran the data through cleaning, exploratory
+              analysis of how the sensor's location and reading distribution behaved, and a grid search
+              over ARIMA's <code>(p, q)</code> hyperparameters, evaluated each combination with training
+              MAE, then validated the winner with proper walk-forward validation, retraining the model
+              at each step and only ever predicting one step past what it had already seen. That
+              discipline matters: it's the difference between a model that looks good on paper and one
+              that would actually hold up making tomorrow's prediction with only today's data.
+            </p>
+          </div>
+
+          <div class="stat-grid">
+            <div class="stat-tile"><span class="stat-tile__value">19.66</span><span class="stat-tile__label">baseline MAE</span></div>
+            <div class="stat-tile"><span class="stat-tile__value">3.64</span><span class="stat-tile__label">walk-forward test MAE</span></div>
+            <div class="stat-tile"><span class="stat-tile__value">~81%</span><span class="stat-tile__label">error reduction</span></div>
+            <div class="stat-tile"><span class="stat-tile__value">58,994</span><span class="stat-tile__label">sensor readings</span></div>
+          </div>
+
+          <div class="prose">
+            <h2>Why the baseline matters as much as the model</h2>
+            <p>
+              Before tuning anything, I set a baseline: predict the training mean for every point, which
+              scored a mean absolute error of 19.66. That number is the whole point of building a
+              baseline in the first place, it's not a bar to be proud of clearing, it's a sanity check
+              that keeps you honest about whether the model is actually learning something or just
+              memorizing an average. After the grid search and walk-forward validation, the tuned ARIMA
+              model brought that down to 3.64, an error small enough to trust for the kind of forecast
+              that could actually inform someone's day.
+            </p>
+            <h2>What the data itself is saying</h2>
+            <p>
+              Dar es Salaam's present-day air quality sits in the 0 to 50 PM2.5 range, which reads as
+              good on the standard scale, and the gap between the naive baseline and the tuned model's
+              error shows there's real, learnable structure in how the pollution level moves over time,
+              not just noise. That's a useful thing to know both for the model and for anyone trying to
+              plan around it.
+            </p>
+          </div>
+
+          <h2 style="font-size:var(--text-2xl); margin: var(--space-8) 0 var(--space-2);">Explore it</h2>
+          <div class="resource-grid">
+            <a class="resource-item" href="https://lnkd.in/d5Z5PiPB" target="_blank" rel="noopener">
+              <span class="resource-item__label"><span class="resource-item__title">Project folder</span><span class="resource-item__sub">Notebook + supporting files</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+            <a class="resource-item" href="https://lnkd.in/dD5EGxub" target="_blank" rel="noopener">
+              <span class="resource-item__label"><span class="resource-item__title">Source dataset</span><span class="resource-item__sub">africaopendata.org</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+            <a class="resource-item" href="assets/downloads/tanzania-air-quality/tanzania-air-quality-notebook.pdf" target="_blank" rel="noopener">
+              <span class="resource-item__label"><span class="resource-item__title">Download the full notebook</span><span class="resource-item__sub">PDF &middot; EDA through final forecast</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <span>&copy; 2026 Micheal Olaniyi</span>
+        <a class="btn btn--indigo btn--sm" href="avatar.html">Chat with my digital twin</a>
+      </div>
+    </footer>
+  </div>
+  <script src="js/nav.js"></script>
+</body>
+</html>

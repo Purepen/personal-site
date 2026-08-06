@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Insuring Success: a Car Insurance Claims Dashboard | Micheal Olaniyi</title>
+  <meta name="description" content="A Power BI analysis of car insurance claims for the Onyx Data monthly challenge, covering 38,000 policy holders and $1.88bn in first-time claim exposure." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body data-nav="posts.html">
+  <div class="page-wrap">
+    <header class="site-nav">
+      <div class="site-nav__inner">
+        <a class="brand" href="index.html">Micheal Olaniyi</a>
+        <nav class="nav-right">
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="posts.html">Posts</a></li>
+            <li><a href="avatar.html">Avatar</a></li>
+          </ul>
+          <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <svg class="icon"><use href="assets/icons.svg#i-menu"></use></svg>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="section" style="border-top:none; padding-bottom: 0;">
+          <a class="post-back-link" href="posts.html">
+            <svg class="icon icon--sm"><use href="assets/icons.svg#i-arrow-right"></use></svg>
+            All posts
+          </a>
+
+          <div class="post-detail-hero">
+            <p class="eyebrow">Business Intelligence</p>
+            <h1 class="display">Insuring Success: a Car Insurance Claims Dashboard</h1>
+            <p class="post-detail-hero__subtitle">
+              Built for Onyx Data's monthly challenge: a Power BI dive into 38,000 car insurance policy
+              holders, uncovering who actually files claims, which cars cost the most, and what the
+              company should do about it.
+            </p>
+            <div class="post-detail-hero__tags">
+              <span class="tag">Power BI</span>
+              <span class="tag">DAX</span>
+              <span class="tag">Onyx Data challenge</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" style="border-top:none; padding-top: 0;">
+          <div class="post-hero-media">
+            <img src="assets/posts/powerbi-insurance-claims/cover-page.jpg" alt="Insuring Success Power BI dashboard cover page with key claim statistics" loading="lazy" />
+          </div>
+
+          <div class="prose">
+            <p>
+              Onyx Data runs a monthly open challenge where they hand out a dataset and see what the
+              community finds. This month it was car insurance: policy holder demographics, claim
+              history, and the financial side of who actually gets paid out. I went in as an explorer
+              with a dataset instead of a map, and came out with a full Power BI report and a set of
+              recommendations I'd genuinely stand behind.
+            </p>
+          </div>
+
+          <div class="stat-grid">
+            <div class="stat-tile"><span class="stat-tile__value">38K</span><span class="stat-tile__label">policy holders</span></div>
+            <div class="stat-tile"><span class="stat-tile__value">$1.88bn</span><span class="stat-tile__label">first-time claim exposure</span></div>
+            <div class="stat-tile"><span class="stat-tile__value">78</span><span class="stat-tile__label">distinct car makers</span></div>
+            <div class="stat-tile"><span class="stat-tile__value">28%</span><span class="stat-tile__label">of cars ever paid a claim</span></div>
+          </div>
+
+          <div class="prose">
+            <h2>What the data actually said</h2>
+            <ul style="color:var(--text-muted); line-height:var(--leading-relaxed); padding-left:1.3em;">
+              <li>Gender split among policy holders is essentially even, 49.9% male to 50.1% female, so gender isn't driving who insures a car.</li>
+              <li>Bachelor's degree holders make up exactly half the policy holder base, more than every other education level combined.</li>
+              <li>Only 44% of policy holders are parents, most are single, and average household income sits at $147,250.</li>
+              <li>Ford is the most insured make by a wide margin, and the Mustang specifically is both the most insured model and the one that gets paid out most.</li>
+              <li>The average age of a car behind a paid claim is 23 years, and private cars registered in urban zones account for roughly 83.71% more paid claims than other zones.</li>
+            </ul>
+
+            <h2>Turning insight into recommendations</h2>
+            <p>
+              A dashboard is only useful if it changes a decision, so the report closes with five
+              concrete recommendations: run a proper risk assessment on urban zones where paid claims
+              concentrate and price premiums accordingly, revisit coverage terms for the 23-year-old
+              vehicle segment that drives disproportionate payouts, invest in loss prevention programs
+              where claim frequency is highest, run driver education for policyholders to reduce
+              avoidable claims, and tighten claims investigation to catch inflated or fraudulent payouts
+              before they go out the door.
+            </p>
+          </div>
+
+          <h2 style="font-size:var(--text-2xl); margin: var(--space-8) 0 var(--space-2);">Explore it</h2>
+          <div class="resource-grid">
+            <a class="resource-item" href="https://lnkd.in/d3uDeDBe" target="_blank" rel="noopener">
+              <span class="resource-item__label"><span class="resource-item__title">Open the live dashboard</span><span class="resource-item__sub">Interactive</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+            <a class="resource-item" href="https://lnkd.in/dyxBqDYY" target="_blank" rel="noopener">
+              <span class="resource-item__label"><span class="resource-item__title">Source dataset</span><span class="resource-item__sub">Onyx Data</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+            <a class="resource-item" href="assets/downloads/powerbi-insurance-claims/methodology-writeup.pdf" target="_blank" rel="noopener">
+              <span class="resource-item__label"><span class="resource-item__title">Download the methodology write-up</span><span class="resource-item__sub">PDF &middot; data model, DAX, design</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+            <a class="resource-item" href="assets/downloads/powerbi-insurance-claims/report-deck.pdf" target="_blank" rel="noopener">
+              <span class="resource-item__label"><span class="resource-item__title">Download the full report deck</span><span class="resource-item__sub">PDF &middot; every dashboard page</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+            <span class="resource-item is-placeholder">
+              <span class="resource-item__label"><span class="resource-item__title">.pbix file</span><span class="resource-item__sub">Available on request, email me</span></span>
+            </span>
+            <a class="resource-item" href="mailto:purepen1376@gmail.com">
+              <span class="resource-item__label"><span class="resource-item__title">Request the .pbix or ask a question</span><span class="resource-item__sub">purepen1376@gmail.com</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <span>&copy; 2026 Micheal Olaniyi</span>
+        <a class="btn btn--indigo btn--sm" href="avatar.html">Chat with my digital twin</a>
+      </div>
+    </footer>
+  </div>
+  <script src="js/nav.js"></script>
+</body>
+</html>

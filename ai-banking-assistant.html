@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Banking Assistant | Micheal Olaniyi</title>
+  <meta name="description" content="A voice-first banking assistant with two-factor authentication, 8 banking tools, and sub-2-second responses, built with GPT-4o-mini, Whisper, and Gradio." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body data-nav="posts.html">
+  <div class="page-wrap">
+    <header class="site-nav">
+      <div class="site-nav__inner">
+        <a class="brand" href="index.html">Micheal Olaniyi</a>
+        <nav class="nav-right">
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="posts.html">Posts</a></li>
+            <li><a href="avatar.html">Avatar</a></li>
+          </ul>
+          <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <svg class="icon"><use href="assets/icons.svg#i-menu"></use></svg>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="section" style="border-top:none; padding-bottom: 0;">
+          <a class="post-back-link" href="posts.html">
+            <svg class="icon icon--sm"><use href="assets/icons.svg#i-arrow-right"></use></svg>
+            All posts
+          </a>
+
+          <div class="post-detail-hero">
+            <p class="eyebrow">AI Engineering</p>
+            <h1 class="display">AI Banking Assistant</h1>
+            <p class="post-detail-hero__subtitle">
+              A voice-first banking assistant that authenticates a customer, understands what they're
+              asking for in plain English, and answers with real account data, spoken back to them in
+              under two seconds.
+            </p>
+            <div class="post-detail-hero__tags">
+              <span class="tag">GPT-4o-mini</span>
+              <span class="tag">Whisper</span>
+              <span class="tag">TTS-1</span>
+              <span class="tag">Function calling</span>
+              <span class="tag">SQLite</span>
+              <span class="tag">Gradio</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" style="border-top:none; padding-top: 0;">
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/Hvwg5XZ3TR0" title="AI Banking Assistant demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+
+          <div class="prose">
+            <p>
+              Most "AI in banking" demos stop at a chatbot that can define what a savings account is.
+              I wanted something that could actually do the job: verify who you are, pull your real
+              balance, search your transactions, and check whether you qualify for a loan, all through
+              a conversation you could just as easily have out loud as type.
+            </p>
+            <p>
+              So that's what I built. The AI Banking Assistant is a full-stack application on top of
+              OpenAI's GPT-4o-mini, wired up to a proper two-factor authentication flow, 8 specialized
+              banking tools, and a voice pipeline (Whisper for speech-to-text, TTS-1 for the reply
+              spoken back). It runs against a relational SQLite database seeded with 700 mock customers
+              and over 1,000 transactions, so the numbers you see in the demo are real query results,
+              not scripted responses.
+            </p>
+          </div>
+
+          <div class="stat-grid">
+            <div class="stat-tile"><span class="stat-tile__value">700</span><span class="stat-tile__label">mock customers</span></div>
+            <div class="stat-tile"><span class="stat-tile__value">1,000+</span><span class="stat-tile__label">transactions</span></div>
+            <div class="stat-tile"><span class="stat-tile__value">8</span><span class="stat-tile__label">banking tools</span></div>
+            <div class="stat-tile"><span class="stat-tile__value">&lt;2s</span><span class="stat-tile__label">response time</span></div>
+          </div>
+
+          <div class="prose">
+            <h2>Getting in the door: two-factor, done properly</h2>
+            <p>
+              Before the assistant tells you anything, it needs to know it's actually talking to you.
+              Every session opens with a CX code, an 8-character identifier unique to each customer,
+              checked against the database with a case-insensitive match. Get that right and it moves
+              to a personal security question, and only after both checks pass does it create an
+              isolated session tied to that customer's ID. Every single query after that is filtered
+              by that ID at the database level, so there's no path for one customer's session to see
+              another customer's data, even by accident.
+            </p>
+
+            <h2>Once you're in: the model decides what to do</h2>
+            <p>
+              This is where function calling earns its keep. GPT-4o-mini reads the request, figures out
+              the intent, and picks from 8 registered tools: check a balance, list all accounts, pull
+              recent transactions, search transactions by amount or date range, or assess loan
+              eligibility against a credit score and income. The model extracts whatever parameters it
+              needs straight from the sentence you typed or said, runs a parameterized query against
+              the right table, and folds the result back into a natural reply. Ask "what's my checking
+              balance" and it calls <code>check_balance</code>. Ask "show me everything over $100 last
+              week" and it calls <code>search_transactions</code> with the amount and date window
+              already filled in.
+            </p>
+
+            <h2>Making it talk</h2>
+            <p>
+              Text is the fallback, voice is the point. Whisper handles transcription on the way in,
+              TTS-1 handles the spoken reply on the way out, and the whole round trip, speech in,
+              model reasoning, database query, speech out, lands in under two seconds for a typical
+              banking question. That's the part that made this feel less like a chatbot demo and more
+              like a product: you can genuinely have a conversation with your account.
+            </p>
+
+            <h2>What actually broke, and what fixed it</h2>
+            <p>
+              A few things bit me along the way, and they were the useful parts. Early on, mock data
+              generation created orphaned records across tables because foreign keys weren't enforced
+              consistently, so I rebuilt the data generation to use real database IDs and added
+              automated verification scripts to catch drift before it shipped. Authentication also
+              failed more than it should have at first, security answers weren't matching despite
+              correct input, which turned out to be a whitespace and casing issue, fixed with
+              case-insensitive comparison and trimming plus better debug logging. And because this runs
+              on a paid API, I added per-session rate limits and hard usage caps so a runaway loop
+              can't turn into a runaway bill, keeping real-world cost to about $0.01 to $0.05 per
+              conversation.
+            </p>
+          </div>
+
+          <h2 style="font-size:var(--text-2xl); margin: var(--space-8) 0 var(--space-2);">Explore it</h2>
+          <div class="resource-grid">
+            <a class="resource-item" href="https://youtu.be/Hvwg5XZ3TR0" target="_blank" rel="noopener">
+              <span class="resource-item__label"><span class="resource-item__title">Watch the full demo</span><span class="resource-item__sub">YouTube</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+            <a class="resource-item" href="https://github.com/Purepen" target="_blank" rel="noopener">
+              <span class="resource-item__label"><span class="resource-item__title">Browse my GitHub</span><span class="resource-item__sub">github.com/Purepen</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+            <a class="resource-item" href="assets/downloads/ai-banking-assistant/ai-banking-assistant-technical-overview.pdf" target="_blank" rel="noopener">
+              <span class="resource-item__label"><span class="resource-item__title">Download the technical write-up</span><span class="resource-item__sub">PDF &middot; architecture, schema, tool reference</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+            <a class="resource-item" href="mailto:purepen1376@gmail.com">
+              <span class="resource-item__label"><span class="resource-item__title">Talk to me about it</span><span class="resource-item__sub">purepen1376@gmail.com</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <span>&copy; 2026 Micheal Olaniyi</span>
+        <a class="btn btn--indigo btn--sm" href="avatar.html">Chat with my digital twin</a>
+      </div>
+    </footer>
+  </div>
+  <script src="js/nav.js"></script>
+</body>
+</html>

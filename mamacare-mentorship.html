@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MamaCare: an ML + LLM Mentorship Project | Micheal Olaniyi</title>
+  <meta name="description" content="A three-month mentorship project for 3MTT and WeSonline data science students: a maternal health risk model wrapped in an LLM advisor, shipped as a live app." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body data-nav="posts.html">
+  <div class="page-wrap">
+    <header class="site-nav">
+      <div class="site-nav__inner">
+        <a class="brand" href="index.html">Micheal Olaniyi</a>
+        <nav class="nav-right">
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="posts.html">Posts</a></li>
+            <li><a href="avatar.html">Avatar</a></li>
+          </ul>
+          <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <svg class="icon"><use href="assets/icons.svg#i-menu"></use></svg>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="section" style="border-top:none; padding-bottom: 0;">
+          <a class="post-back-link" href="posts.html">
+            <svg class="icon icon--sm"><use href="assets/icons.svg#i-arrow-right"></use></svg>
+            All posts
+          </a>
+
+          <div class="post-detail-hero">
+            <p class="eyebrow">AI Engineering &middot; Mentorship</p>
+            <h1 class="display">MamaCare: Teaching a Cohort to Ship an ML + LLM App</h1>
+            <p class="post-detail-hero__subtitle">
+              A three-month mentorship project for 3MTT, WeSonline, and Data Science Nigeria students:
+              a maternal health risk model wrapped in an LLM advisor, taken all the way from a raw
+              CSV to a live, public app.
+            </p>
+            <div class="post-detail-hero__tags">
+              <span class="tag">Mentorship</span>
+              <span class="tag">scikit-learn</span>
+              <span class="tag">XGBoost</span>
+              <span class="tag">Groq / Llama 3.3</span>
+              <span class="tag">Gradio</span>
+              <span class="tag">Hugging Face Spaces</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" style="border-top:none; padding-top: 0;">
+          <div class="prose">
+            <p>
+              For Cohort 3 of a joint 3MTT, WeSonline, and Data Science Nigeria mentorship track, I
+              spent three months guiding a group of mentees through one full project, start to finish:
+              MamaCare, a maternal health risk advisor. The brief was simple to say and genuinely useful
+              to build: take a patient's basic vitals, predict a risk level with a trained model, then
+              have an LLM turn that prediction into warm, practical advice a pregnant woman could
+              actually act on.
+            </p>
+            <p>
+              What made this a good teaching project is that it forces you through every stage a real
+              ML product goes through, not just the fun modeling part. We covered model comparison and
+              tuning, prompt engineering for a sensitive domain, the unglamorous work of turning a
+              notebook into a script, and finally deployment, including the platform gotchas nobody
+              warns you about until you hit them mid-class.
+            </p>
+          </div>
+
+          <div class="stat-grid">
+            <div class="stat-tile"><span class="stat-tile__value">1,014</span><span class="stat-tile__label">patient records</span></div>
+            <div class="stat-tile"><span class="stat-tile__value">4</span><span class="stat-tile__label">models compared</span></div>
+            <div class="stat-tile"><span class="stat-tile__value">3</span><span class="stat-tile__label">risk levels predicted</span></div>
+            <div class="stat-tile"><span class="stat-tile__value">3 months</span><span class="stat-tile__label">mentorship track</span></div>
+          </div>
+
+          <div class="prose">
+            <h2>Part 1: choosing a model for the right reason</h2>
+            <p>
+              We trained four classifiers, a Decision Tree, Gradient Boosting, XGBoost, and an SVC, on
+              1,014 patient records after removing 562 duplicate rows that would otherwise have leaked
+              between train and test. The lesson that stuck with the cohort: SVC posted the highest
+              raw accuracy, but the lowest macro F1, because it was coasting on the majority "low risk"
+              class while quietly failing the "high risk" patients, the ones a screening tool actually
+              exists to catch. We ranked by macro F1 instead of accuracy for exactly that reason, tuned
+              the winner with GridSearchCV under 5-fold cross-validation, and shipped it as a single
+              scikit-learn pipeline (scaler plus model) so deployment would be one <code>joblib.load()</code>
+              away from a working prediction.
+            </p>
+
+            <h2>Part 2: giving the prediction a voice</h2>
+            <p>
+              A risk label on its own doesn't help a worried mother. So the second half of the project
+              added an LLM, Llama 3.3 70B via Groq's free tier, since neither OpenAI nor Anthropic offer
+              a free API and this needed to cost nothing for every student. The real work here was the
+              system prompt: it packs in normal reference ranges for each vital, a rule to always
+              personalize the advice to the patient's actual numbers, a hard rule to never diagnose or
+              prescribe, and a requirement that any high-risk result opens with "see a doctor promptly."
+              Temperature stayed at 0.4 throughout, because health advice should be consistent, not
+              creative.
+            </p>
+
+            <h2>Part 3 and 4: from notebook to a link anyone can open</h2>
+            <p>
+              The last stretch is the part most tutorials skip: turning a notebook into a product. We
+              moved model loading and the API client to module level so nothing reloads on every click,
+              swapped <code>input()</code> for a Gradio interface, replaced the notebook's friendly
+              <code>getpass</code> fallback with a loud failure if the API key is missing (a deployed
+              server has nobody at the keyboard to prompt), and wrapped the core function in Gradio's
+              error handling so a stranger leaving a field blank gets a clear message instead of a stack
+              trace. Then we deployed to Hugging Face Spaces, and hit a genuinely useful real-world
+              lesson along the way: Hugging Face now requires an account to be over 30 days old before
+              it can host even a free Gradio Space, a platform rule with no workaround, and exactly the
+              kind of thing you only learn by trying to ship for real.
+            </p>
+          </div>
+
+          <h2 style="font-size:var(--text-2xl); margin: var(--space-8) 0 var(--space-2);">Explore it</h2>
+          <div class="resource-grid">
+            <a class="resource-item" href="https://github.com/Purepen/Maternal_Health--mentorship--Project" target="_blank" rel="noopener">
+              <span class="resource-item__label"><span class="resource-item__title">Full source on GitHub</span><span class="resource-item__sub">Purepen/Maternal_Health--mentorship--Project</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+            <span class="resource-item is-placeholder">
+              <span class="resource-item__label"><span class="resource-item__title">Live app on Hugging Face Spaces</span><span class="resource-item__sub">Ask me for the current link, Spaces occasionally get renamed</span></span>
+            </span>
+            <a class="resource-item" href="assets/downloads/mamacare-mentorship/Part1_Maternal_Health_Risk_ML_Notebook.ipynb" target="_blank" rel="noopener">
+              <span class="resource-item__label"><span class="resource-item__title">Part 1 notebook: model comparison</span><span class="resource-item__sub">.ipynb</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+            <a class="resource-item" href="assets/downloads/mamacare-mentorship/Part2_Maternal_Health_LLM_Notebook.ipynb" target="_blank" rel="noopener">
+              <span class="resource-item__label"><span class="resource-item__title">Part 2 notebook: adding the LLM</span><span class="resource-item__sub">.ipynb</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+            <a class="resource-item" href="assets/downloads/mamacare-mentorship/app.py" target="_blank" rel="noopener">
+              <span class="resource-item__label"><span class="resource-item__title">The deployed app.py</span><span class="resource-item__sub">Gradio app, Part 3</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+            <a class="resource-item" href="assets/downloads/mamacare-mentorship/maternal_risk_pipeline.joblib" target="_blank" rel="noopener">
+              <span class="resource-item__label"><span class="resource-item__title">Trained model pipeline</span><span class="resource-item__sub">.joblib</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+            <a class="resource-item" href="assets/downloads/mamacare-mentorship/Maternal_Health_Risk_Data_Set.csv" target="_blank" rel="noopener">
+              <span class="resource-item__label"><span class="resource-item__title">Training dataset</span><span class="resource-item__sub">.csv &middot; 1,014 records</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+            <a class="resource-item" href="assets/downloads/mamacare-mentorship/Part3_Notebook_to_App.md" target="_blank" rel="noopener">
+              <span class="resource-item__label"><span class="resource-item__title">Part 3 guide: notebook to app</span><span class="resource-item__sub">.md</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+            <a class="resource-item" href="assets/downloads/mamacare-mentorship/Part4_Deploy_to_HuggingFace.md" target="_blank" rel="noopener">
+              <span class="resource-item__label"><span class="resource-item__title">Part 4 guide: deploying to Spaces</span><span class="resource-item__sub">.md</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <span>&copy; 2026 Micheal Olaniyi</span>
+        <a class="btn btn--indigo btn--sm" href="avatar.html">Chat with my digital twin</a>
+      </div>
+    </footer>
+  </div>
+  <script src="js/nav.js"></script>
+</body>
+</html>

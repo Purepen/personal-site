@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Why C++ Is the Machine's Best Friend | Micheal Olaniyi</title>
+  <meta name="description" content="A short note on compiled versus interpreted languages, explained through a Yoruba-speaking buka and a corps member who needs a translator." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body data-nav="posts.html">
+  <div class="page-wrap">
+    <header class="site-nav">
+      <div class="site-nav__inner">
+        <a class="brand" href="index.html">Micheal Olaniyi</a>
+        <nav class="nav-right">
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="posts.html">Posts</a></li>
+            <li><a href="avatar.html">Avatar</a></li>
+          </ul>
+          <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <svg class="icon"><use href="assets/icons.svg#i-menu"></use></svg>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="section" style="border-top:none; padding-bottom: 0;">
+          <a class="post-back-link" href="posts.html">
+            <svg class="icon icon--sm"><use href="assets/icons.svg#i-arrow-right"></use></svg>
+            All posts
+          </a>
+
+          <div class="post-detail-hero">
+            <p class="eyebrow">Notes</p>
+            <h1 class="display">Why C++ Is the Machine's Best Friend, But Python Bought It Coffee</h1>
+            <p class="post-detail-hero__subtitle">
+              A buka in Ondo State, a Yoruba-speaking chef, and a lost corps member explain compiled
+              versus interpreted languages better than any textbook I've read.
+            </p>
+          </div>
+        </section>
+
+        <section class="section" style="border-top:none; padding-top: 0;">
+          <div class="post-hero-media">
+            <img src="assets/posts/cpp-vs-python/buka-street.jpg" alt="A street scene in Nigeria with vendors and buildings" loading="lazy" />
+          </div>
+
+          <div class="prose">
+            <p>
+              Imagine walking into a buka in Ondo State. A woman is selling fresh iyan and marugbo soup.
+              You're from there, you speak Yoruba fluently, so you walk straight up and say "Mama, give
+              me iyan with plenty marugbo o, make the soup dey hot." She smiles, nods, and five minutes
+              later your food is steaming in front of you. No wahala, no delay. That's C++.
+            </p>
+            <p>
+              Now imagine a corps member from Anambra State walks into that same buka, posted to Ondo
+              for NYSC. He looks at the menu, sees "iyan and marugbo soup," and tries to order, but Mama
+              only speaks Yoruba. He tries English instead: "Please, I want pounded yam with the
+              vegetable soup." She stares at him, confused. He's frustrated, she's confused. So he finds
+              a woman nearby who speaks both languages, and she becomes his interpreter, translating his
+              order to Mama, translating Mama's questions back to him, back and forth until he finally
+              eats. It takes longer, but he gets fed. That's Python.
+            </p>
+            <p>
+              Here's what genuinely made me stop and go "wait, what" when I learned it properly: C++
+              talks almost directly to your computer. Your computer only understands machine code, pure
+              0s and 1s, like a baby that only knows "goo goo" and "gaga." One level up from that is
+              Assembly, basically caveman instructions: move, add, jump, stop. Still raw, but at least
+              it has words. C++ sits right on top of Assembly, close enough to the hardware that your
+              code gets compiled once into machine language, and from then on your computer just runs
+              it, full speed, no translator standing in the middle at runtime. That's why your
+              PlayStation, your game engines, your operating systems all run on C++. It's fast and
+              powerful, and it's also why one small mistake can take down the whole program and leave
+              you staring at an error message at 3am wondering why you chose this career.
+            </p>
+            <p>
+              Python is the chill cousin. It doesn't whisper straight to the machine, it hires a
+              full-time interpreter to stand between you and the computer, translating line by line,
+              every single time your code runs. You write <code>print("Hello")</code>, the interpreter
+              reads it, translates it to machine code, tells the computer, waits for confirmation, then
+              moves to the next line. It's slower, but it's forgiving, and it's exactly why beginners
+              love it: you can build real things without losing your mind over memory management.
+            </p>
+            <p>
+              What I took from this: C++ is the machine's oldest friend, but Python showed up with
+              snacks for everyone else.
+            </p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <span>&copy; 2026 Micheal Olaniyi</span>
+        <a class="btn btn--indigo btn--sm" href="avatar.html">Chat with my digital twin</a>
+      </div>
+    </footer>
+  </div>
+  <script src="js/nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JU &amp; TOSZ Sales Dashboard | Micheal Olaniyi</title>
+  <meta name="description" content="A Power BI sales dashboard tracking product demand and regional performance, with theme switching, page navigation, and dynamic bookmarks." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body data-nav="posts.html">
+  <div class="page-wrap">
+    <header class="site-nav">
+      <div class="site-nav__inner">
+        <a class="brand" href="index.html">Micheal Olaniyi</a>
+        <nav class="nav-right">
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="posts.html">Posts</a></li>
+            <li><a href="avatar.html">Avatar</a></li>
+          </ul>
+          <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <svg class="icon"><use href="assets/icons.svg#i-menu"></use></svg>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="section" style="border-top:none; padding-bottom: 0;">
+          <a class="post-back-link" href="posts.html">
+            <svg class="icon icon--sm"><use href="assets/icons.svg#i-arrow-right"></use></svg>
+            All posts
+          </a>
+
+          <div class="post-detail-hero">
+            <p class="eyebrow">Business Intelligence</p>
+            <h1 class="display">JU &amp; TOSZ Sales Dashboard</h1>
+            <p class="post-detail-hero__subtitle">
+              A Power BI sales dashboard that tracks product demand and regional performance across two
+              years, built with a dark theme option, page navigation, and cool-toned bookmarks that make
+              digging into the numbers feel good, not just informative.
+            </p>
+            <div class="post-detail-hero__tags">
+              <span class="tag">Power BI</span>
+              <span class="tag">Page navigation</span>
+              <span class="tag">Theming</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" style="border-top:none; padding-top: 0;">
+          <div class="post-hero-media">
+            <img src="assets/posts/powerbi-sales-dashboard/dashboard.png" alt="JU and TOSZ Sales Dashboard showing product demand and top cities" loading="lazy" />
+          </div>
+
+          <div class="prose">
+            <p>
+              My second dashboard of that year, built on a sales product dataset spanning 2019 and 2020.
+              The main KPIs are cities and sales, assessed across product categories and regions, with a
+              Sales Overview page and a Cities Overview page linked by clean navigation so a viewer never
+              has to guess where to click next. The MacBook Pro Laptop leads total sales at $8.0M,
+              followed by iPhone and ThinkPad Laptop, while San Francisco, Los Angeles, and New York pull
+              in the highest demand of any city in the dataset.
+            </p>
+            <p>
+              I leaned into the visual side here more than usual: a dark and light theme toggle right on
+              the canvas, cool page transitions through bookmarks, and enough polish that the report
+              holds up as something you'd actually want to present in a room, not just export as a
+              screenshot.
+            </p>
+          </div>
+
+          <h2 style="font-size:var(--text-2xl); margin: var(--space-8) 0 var(--space-2);">Explore it</h2>
+          <div class="resource-grid">
+            <a class="resource-item" href="https://lnkd.in/dE2xsghW" target="_blank" rel="noopener">
+              <span class="resource-item__label"><span class="resource-item__title">Open the live report</span><span class="resource-item__sub">Interactive</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+            <a class="resource-item" href="https://lnkd.in/dr2GshPy" target="_blank" rel="noopener">
+              <span class="resource-item__label"><span class="resource-item__title">Source dataset</span><span class="resource-item__sub">Sales product data</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <span>&copy; 2026 Micheal Olaniyi</span>
+        <a class="btn btn--indigo btn--sm" href="avatar.html">Chat with my digital twin</a>
+      </div>
+    </footer>
+  </div>
+  <script src="js/nav.js"></script>
+</body>
+</html>

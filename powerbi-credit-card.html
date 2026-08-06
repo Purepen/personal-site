@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Credit Card Transaction Dashboard | Micheal Olaniyi</title>
+  <meta name="description" content="A Power BI dashboard analysing Indian credit card transactions by city, expense category, and region, with bookmarks and context-aware filtering." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body data-nav="posts.html">
+  <div class="page-wrap">
+    <header class="site-nav">
+      <div class="site-nav__inner">
+        <a class="brand" href="index.html">Micheal Olaniyi</a>
+        <nav class="nav-right">
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="posts.html">Posts</a></li>
+            <li><a href="avatar.html">Avatar</a></li>
+          </ul>
+          <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <svg class="icon"><use href="assets/icons.svg#i-menu"></use></svg>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="section" style="border-top:none; padding-bottom: 0;">
+          <a class="post-back-link" href="posts.html">
+            <svg class="icon icon--sm"><use href="assets/icons.svg#i-arrow-right"></use></svg>
+            All posts
+          </a>
+
+          <div class="post-detail-hero">
+            <p class="eyebrow">Business Intelligence</p>
+            <h1 class="display">Credit Card Transaction Dashboard</h1>
+            <p class="post-detail-hero__subtitle">
+              A Power BI report breaking down Indian credit card transactions by city, expense
+              category, and region, built to feel effortless to click through, not just accurate.
+            </p>
+            <div class="post-detail-hero__tags">
+              <span class="tag">Power BI</span>
+              <span class="tag">Bookmarks</span>
+              <span class="tag">DAX</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" style="border-top:none; padding-top: 0;">
+          <div class="post-hero-media">
+            <img src="assets/posts/powerbi-credit-card/dashboard.jpg" alt="Credit Card Transaction Power BI dashboard showing spend by city" loading="lazy" />
+          </div>
+
+          <div class="prose">
+            <p>
+              My first report of the year, built on an Indian credit card transaction dataset. The
+              focus sits on three KPIs: which cities spend the most, how expenses break down, and how
+              the totals shift once you slice by transaction category and region. Greater Mumbai,
+              Bengaluru, and Ahmedabad lead the pack by total transaction amount, each clearing over
+              half a billion in the dataset's currency units, while the smaller cities at the bottom of
+              the table tell the opposite story: fewer withdrawals, but a higher amount per transaction,
+              worth a second look on its own.
+            </p>
+            <p>
+              The part I cared most about here was the experience of using it, not just the numbers
+              behind it. Bookmarks let a viewer jump between the cities view, the expenses view, and the
+              amount view without the report ever feeling like separate pages bolted together, and the
+              context tweaks underneath make sure a filter selected on one view carries its meaning
+              correctly onto the next.
+            </p>
+          </div>
+
+          <h2 style="font-size:var(--text-2xl); margin: var(--space-8) 0 var(--space-2);">Explore it</h2>
+          <div class="resource-grid">
+            <a class="resource-item" href="https://lnkd.in/dYMDCPeX" target="_blank" rel="noopener">
+              <span class="resource-item__label"><span class="resource-item__title">Open the live report</span><span class="resource-item__sub">Interactive</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+            <a class="resource-item" href="https://lnkd.in/d5_Rgv4h" target="_blank" rel="noopener">
+              <span class="resource-item__label"><span class="resource-item__title">Source dataset</span><span class="resource-item__sub">Indian credit card transactions</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <span>&copy; 2026 Micheal Olaniyi</span>
+        <a class="btn btn--indigo btn--sm" href="avatar.html">Chat with my digital twin</a>
+      </div>
+    </footer>
+  </div>
+  <script src="js/nav.js"></script>
+</body>
+</html>

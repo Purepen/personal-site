@@ -1,0 +1,5 @@
+# Raw source material for posts (docx/pdf/notebooks/etc). The content has
+# been written up into the site pages, and any file meant to be downloadable
+# has been copied into assets/downloads/<project>/. This folder is just the
+# original working files and doesn't need to ship with the site.
+posts/

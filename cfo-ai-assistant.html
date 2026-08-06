@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CFO AI Assistant | Micheal Olaniyi</title>
+  <meta name="description" content="Five specialized AI agents that give Nigerian bank CFOs instant answers on financial metrics, CBN compliance, and market intelligence." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body data-nav="posts.html">
+  <div class="page-wrap">
+    <header class="site-nav">
+      <div class="site-nav__inner">
+        <a class="brand" href="index.html">Micheal Olaniyi</a>
+        <nav class="nav-right">
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="posts.html">Posts</a></li>
+            <li><a href="avatar.html">Avatar</a></li>
+          </ul>
+          <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <svg class="icon"><use href="assets/icons.svg#i-menu"></use></svg>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="section" style="border-top:none; padding-bottom: 0;">
+          <a class="post-back-link" href="posts.html">
+            <svg class="icon icon--sm"><use href="assets/icons.svg#i-arrow-right"></use></svg>
+            All posts
+          </a>
+
+          <div class="post-detail-hero">
+            <p class="eyebrow">AI Engineering</p>
+            <h1 class="display">CFO AI Assistant</h1>
+            <p class="post-detail-hero__subtitle">
+              A team of specialized AI agents that answer a Nigerian bank CFO's financial questions in
+              plain English, pulling from real financial data, internal policy documents, and live
+              market intelligence, in seconds instead of hours.
+            </p>
+            <div class="post-detail-hero__tags">
+              <span class="tag">Claude Sonnet 4</span>
+              <span class="tag">Multi-agent</span>
+              <span class="tag">Text-to-SQL</span>
+              <span class="tag">RAG</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">PostgreSQL</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" style="border-top:none; padding-top: 0;">
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/Hmk_OsMPNt0" title="CFO AI Assistant v2 demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+
+          <div class="prose">
+            <p>
+              A CFO's day is full of questions that live in different places. The board wants the
+              capital adequacy ratio right now, not after thirty minutes of spreadsheet archaeology. An
+              auditor wants NPL trends pulled from three different systems. A manager wants to know
+              whether they can approve a ₦35 million expense without digging through a policy PDF to
+              find the threshold. None of that is hard to answer, it's just scattered.
+            </p>
+            <p>
+              The CFO AI Assistant puts one conversational interface in front of all of it. Ask a
+              question in plain English and a router sends it to whichever specialist agent actually
+              knows the answer: a text-to-SQL agent for financial metrics, a RAG agent for policy and
+              compliance documents, and a web agent for market intelligence. I built two versions of
+              this, and the gap between them is basically the story of learning to build agent systems
+              properly.
+            </p>
+          </div>
+
+          <div class="stat-grid">
+            <div class="stat-tile"><span class="stat-tile__value">15</span><span class="stat-tile__label">Nigerian banks modeled</span></div>
+            <div class="stat-tile"><span class="stat-tile__value">5</span><span class="stat-tile__label">specialized agents (v2)</span></div>
+            <div class="stat-tile"><span class="stat-tile__value">&lt;3s</span><span class="stat-tile__label">typical response time</span></div>
+            <div class="stat-tile"><span class="stat-tile__value">95%+</span><span class="stat-tile__label">RAG retrieval accuracy</span></div>
+          </div>
+
+          <div class="prose">
+            <h2>v1: proving the idea</h2>
+            <p>
+              The first version ran on GPT-4 and LangChain with three agents: SQL for structured
+              financial metrics, RAG over ChromaDB for policy documents, and a web search agent for
+              anything current. It could already do the core trick, turn "show banks with ROE above
+              20%" into a real query against a SQLite database of 15 Nigerian banks, or answer "what's
+              the approval threshold for a ₦50M loan" by retrieving the right paragraph from a policy
+              document instead of making the CFO go find it. That version is open on GitHub if you want
+              to see where this started.
+            </p>
+
+            <h2>v2: built like it's going into production</h2>
+            <p>
+              Version 2 is a full rebuild around a proper microservices shape: a Streamlit frontend, a
+              FastAPI backend, an orchestration layer that routes queries, and five agents instead of
+              three, adding a Compliance agent that checks live ratios against CBN thresholds and
+              classifies violations by severity, and a Financial Analyst agent that does trend detection
+              and 3-to-6-month forecasting with confidence intervals. The data layer moved from SQLite
+              to PostgreSQL, normalized to third normal form across seven core tables (balance sheet,
+              profit and loss, regulatory ratios, loan portfolio, competitor data, users, and an
+              immutable activity log), and the whole thing runs on Claude Sonnet 4, whose 200,000-token
+              context window is what makes it practical to reason over an entire policy document in one
+              pass instead of chunking around the important part.
+            </p>
+            <p>
+              Security got the same production treatment: role-based access across CFO, manager, and
+              analyst tiers, JWT sessions, parameterized queries throughout, and an append-only audit
+              log of every action. It's the difference between "a demo that works" and "something I'd
+              actually hand to a bank."
+            </p>
+          </div>
+
+          <h2 style="font-size:var(--text-2xl); margin: var(--space-8) 0 var(--space-2);">Explore it</h2>
+          <div class="resource-grid">
+            <a class="resource-item" href="https://youtu.be/Hmk_OsMPNt0" target="_blank" rel="noopener">
+              <span class="resource-item__label"><span class="resource-item__title">Watch the v2 demo</span><span class="resource-item__sub">YouTube</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+            <a class="resource-item" href="https://github.com/Purepen/CFO-ai-assistant" target="_blank" rel="noopener">
+              <span class="resource-item__label"><span class="resource-item__title">v1 source code</span><span class="resource-item__sub">github.com/Purepen/CFO-ai-assistant</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+            <a class="resource-item" href="assets/downloads/cfo-ai-assistant/cfo-ai-assistant-v2-complete-overview.pdf" target="_blank" rel="noopener">
+              <span class="resource-item__label"><span class="resource-item__title">Download the v2 overview</span><span class="resource-item__sub">PDF &middot; product tour + technical deep dive</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+            <a class="resource-item" href="assets/downloads/cfo-ai-assistant/cfo-ai-assistant-v1-overview.pdf" target="_blank" rel="noopener">
+              <span class="resource-item__label"><span class="resource-item__title">Download the v1 overview</span><span class="resource-item__sub">PDF &middot; original architecture</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+            <a class="resource-item" href="https://wa.me/2348174223657" target="_blank" rel="noopener">
+              <span class="resource-item__label"><span class="resource-item__title">Message me on WhatsApp</span><span class="resource-item__sub">For banks exploring a pilot</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+            <a class="resource-item" href="mailto:purepen1376@gmail.com">
+              <span class="resource-item__label"><span class="resource-item__title">Email me</span><span class="resource-item__sub">purepen1376@gmail.com</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <span>&copy; 2026 Micheal Olaniyi</span>
+        <a class="btn btn--indigo btn--sm" href="avatar.html">Chat with my digital twin</a>
+      </div>
+    </footer>
+  </div>
+  <script src="js/nav.js"></script>
+</body>
+</html>

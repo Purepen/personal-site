@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Sales Automation with n8n | Micheal Olaniyi</title>
+  <meta name="description" content="A fully automated AI sales pipeline: prospect sourcing, personalised outreach, and a voice agent that books demo calls, built with n8n, ElevenLabs, and Twilio." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body data-nav="posts.html">
+  <div class="page-wrap">
+    <header class="site-nav">
+      <div class="site-nav__inner">
+        <a class="brand" href="index.html">Micheal Olaniyi</a>
+        <nav class="nav-right">
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="posts.html">Posts</a></li>
+            <li><a href="avatar.html">Avatar</a></li>
+          </ul>
+          <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <svg class="icon"><use href="assets/icons.svg#i-menu"></use></svg>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="section" style="border-top:none; padding-bottom: 0;">
+          <a class="post-back-link" href="posts.html">
+            <svg class="icon icon--sm"><use href="assets/icons.svg#i-arrow-right"></use></svg>
+            All posts
+          </a>
+
+          <div class="post-detail-hero">
+            <p class="eyebrow">AI Engineering &middot; Automation</p>
+            <h1 class="display">AccountAI: an End-to-End AI Sales Pipeline</h1>
+            <p class="post-detail-hero__subtitle">
+              Drop in a PDF of who you're targeting, and a multi-agent n8n pipeline finds the
+              prospects, drafts the outreach, and hands off to a voice agent that can take an inbound
+              call and book the demo itself.
+            </p>
+            <div class="post-detail-hero__tags">
+              <span class="tag">n8n</span>
+              <span class="tag">ElevenLabs</span>
+              <span class="tag">Twilio</span>
+              <span class="tag">Pipedrive</span>
+              <span class="tag">Firecrawl</span>
+              <span class="tag">Hunter.io</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" style="border-top:none; padding-top: 0;">
+          <div class="post-hero-media">
+            <img src="assets/posts/n8n-sales-automation/hero-overview.jpg" alt="AccountAI sales automation system overview diagram" loading="lazy" />
+          </div>
+
+          <div class="prose">
+            <p>
+              I built a fully automated AI sales system that handles everything from finding the right
+              prospects to booking a demo call with them, without me touching a CRM in the middle.
+              It's two systems working together, one that finds and reaches out to people, and one that
+              picks up the phone when they call back.
+            </p>
+
+            <h2>Outbound: the Business Development Manager</h2>
+            <p>
+              I drop a PDF describing my ideal customer profile into a Google Drive folder, and that's
+              the whole trigger. An n8n AI agent reads the file, then hands off to two sub-agents: a
+              prospecting tool that uses Firecrawl and Hunter.io over MCP to find matching companies and
+              emails online, and an operations tool that saves each one into Pipedrive as an organized
+              lead. A separate SDR sub-agent then drafts a personalized outreach email for every
+              prospect it finds. I just review and send.
+            </p>
+
+            <h2>Inbound: a voice agent that closes the loop</h2>
+            <p>
+              The second half is a US phone number through Twilio, connected to an ElevenLabs voice
+              agent. When a prospect calls in, the agent holds an actual conversation, and depending on
+              what the caller needs, it can either record them as a deal directly in the CRM or check my
+              Google Calendar for a mutual opening and book the demo right there on the call. Both
+              systems talk to each other through n8n workflows and webhooks against a shared CRM, and
+              every action fires a Pushover notification so I stay in the loop without babysitting any
+              of it.
+            </p>
+
+            <h2>What was actually hard</h2>
+            <p>
+              None of this was a weekend build. The platforms powerful enough to do this properly sit
+              behind real usage costs, getting multiple agents to return consistent structured output
+              took a lot of prompt iteration, and routing the voice agent correctly between its tools
+              needed serious testing before it stopped guessing. But watching a cold PDF turn into a
+              booked demo call with no manual step in between made every hour of it worth it. This is
+              what AI automation looks like once you go past chatbots and actually embed the
+              intelligence into the workflow itself.
+            </p>
+          </div>
+
+          <div class="post-gallery">
+            <figure>
+              <img src="assets/posts/n8n-sales-automation/bdm-workflow.jpg" alt="n8n workflow canvas for the Business Development Manager pipeline" loading="lazy" />
+              <figcaption>The Business Development Manager workflow: data extraction, sub-agent routing, and notifications.</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/posts/n8n-sales-automation/ae-voice-tools.jpg" alt="n8n workflow canvas for the Account Executive voice agent tools" loading="lazy" />
+              <figcaption>The voice agent's tools: deal recording and demo scheduling, each its own n8n webhook.</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/posts/n8n-sales-automation/elevenlabs-tools.jpg" alt="ElevenLabs agent configuration screen showing the deal recording and demo booking tools" loading="lazy" />
+              <figcaption>Wiring the n8n webhooks into the ElevenLabs voice agent as callable tools.</figcaption>
+            </figure>
+          </div>
+
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/NAWeeUpWTDk" title="AccountAI sales automation explainer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+
+          <h2 style="font-size:var(--text-2xl); margin: var(--space-8) 0 var(--space-2);">Explore it</h2>
+          <div class="resource-grid">
+            <a class="resource-item" href="https://youtu.be/NAWeeUpWTDk" target="_blank" rel="noopener">
+              <span class="resource-item__label"><span class="resource-item__title">Watch the explainer</span><span class="resource-item__sub">YouTube</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+            <a class="resource-item" href="mailto:purepen1376@gmail.com">
+              <span class="resource-item__label"><span class="resource-item__title">Building something similar?</span><span class="resource-item__sub">Let's connect, purepen1376@gmail.com</span></span>
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-external"></use></svg>
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <span>&copy; 2026 Micheal Olaniyi</span>
+        <a class="btn btn--indigo btn--sm" href="avatar.html">Chat with my digital twin</a>
+      </div>
+    </footer>
+  </div>
+  <script src="js/nav.js"></script>
+</body>
+</html>

@@ -8,16 +8,17 @@ A reference for editing and redeploying this site yourself, without needing to r
 
 A **plain static site** — HTML/CSS/vanilla JS. No framework, no build step, no `package.json`, no bundler. You edit the files directly and what you see is what ships.
 
-Four pages, all sharing the same nav and `<head>` (fonts + `css/tokens.css` + `css/site.css`):
+Four core pages, all sharing the same nav and `<head>` (fonts + `css/tokens.css` + `css/site.css`), plus one detail page per project post (see "Add a project post" below):
 
 | Page | Purpose |
 |---|---|
 | `index.html` | Home: hero, "story" (expandable bio), current work, CTA to Avatar |
 | `about.html` | Full CV: projects, skills, certifications, career history, education, conferences, testimonials, contact |
-| `posts.html` | Video/post grid + FAQ list (both link out) |
+| `posts.html` | Project/post grid + FAQ list. Each card links to its own detail page in the repo root (e.g. `ai-banking-assistant.html`), not out to an external site |
 | `avatar.html` | Embeds the separate Avatar chatbot project via iframe |
+| `<project-slug>.html` | One per project post (11 as of 2026-08-06) - the deep-dive write-up, screenshots/video, and download links for that project |
 
-If you ever add a 5th page, copy the header/nav block from any existing page verbatim, and add a matching `<li><a href="newpage.html">...</a></li>` to the `nav-links` list on **all** pages (there's no shared template — it's duplicated by hand in each file).
+If you ever add a 6th *type* of page, copy the header/nav block from any existing page verbatim, and add a matching `<li><a href="newpage.html">...</a></li>` to the `nav-links` list on **all** pages (there's no shared template - it's duplicated by hand in each file).
 
 ## How this relates to the Avatar project
 
@@ -52,7 +53,9 @@ assets/photo.png, avatar-robot-round.png, icons.svg — site-wide images/icon sp
 assets/post-placeholder.svg                         — neutral blank thumbnail for posts with no real image; never use assets/photo.png as a post thumbnail (owner's preference — keep personal photo off the posts grid)
 assets/certs/*                                      — certification thumbnails (used in about.html)
 assets/journey/*                                    — conference/"on the ground" photos (used in about.html)
-assets/posts/*                                      — empty; optional spot for post thumbnails if you want local images instead of remote ones
+assets/posts/<project-slug>/*                       — hero/gallery images for each project detail page
+assets/downloads/<project-slug>/*                   — original downloadable files (PDFs, notebooks, datasets, models) linked from each project detail page
+posts/                                               — gitignored; raw source material (docx/pdf/notebooks) the project write-ups were drawn from, kept locally only, not deployed
 scripts/deploy.sh, scripts/fly.toml                 — deploy config for this site (Fly app "micheal")
 ```
 
@@ -60,20 +63,39 @@ scripts/deploy.sh, scripts/fly.toml                 — deploy config for this s
 
 Every section below is a **copy an existing block, edit the text, paste it above/below the last one** operation — nothing needs registering anywhere else, and there's no build step. Just save and (when ready) redeploy.
 
-### 1. Add a post or video → `posts.html`
+### 1. Add a project post → new page + `posts.html`
 
-Don't touch `posts.html` itself. Open [js/posts-data.js](js/posts-data.js) and add an object to the `POSTS` array:
+Every card on `posts.html` links to its own detail page in the repo root, not out to an external
+site. To add one:
+
+1. **Write the detail page.** Copy an existing one closest in shape to your new project (e.g.
+   `powerbi-car-sales.html` for a BI dashboard, `ai-banking-assistant.html` for an AI build,
+   `ai-has-no-brain.html` for a short note with no downloads/stats) and edit the content. The shared
+   structure, all hand-written HTML, no shared template file, is: `post-back-link` → `post-detail-hero`
+   (eyebrow category + `h1` + subtitle + tag row) → optional `post-hero-media` image or `video-embed`
+   → `prose` sections → optional `stat-grid` → optional `post-gallery` → a `resource-grid` of
+   `resource-item` links (live demo, GitHub, dataset, downloads, contact). All of these classes are
+   defined in `css/site.css` under "Post detail pages". Set `<body data-nav="posts.html">` so the
+   "Posts" nav link stays highlighted while reading it.
+2. **Add assets.** Drop images in `assets/posts/<project-slug>/` and any downloadable original files
+   (PDFs, notebooks, datasets, models) in `assets/downloads/<project-slug>/`, then link to them with a
+   `resource-item`. If a link genuinely doesn't exist yet (e.g. "ask for the .pbix"), use
+   `<span class="resource-item is-placeholder">` instead of an `<a>` so it doesn't look clickable.
+3. **Add the card.** Open [js/posts-data.js](js/posts-data.js) and add an object to the `POSTS` array:
 
 ```js
 {
-  platform: "youtube",   // "youtube" | "linkedin" | "twitter" | "other"
-  title: "Your post/video title",
-  url: "https://...",
-  date: "2026-07",       // "YYYY-MM", a bare year, or any free label like "2026"
+  category: "ai",   // "ai" | "bi" | "ml" | "notes" — see CATEGORY_LABEL for the display text
+  title: "Your project title",
+  url: "your-project-slug.html",
+  date: "2026-07",  // "YYYY-MM", a bare year, a range, or any free label
   excerpt: "One or two sentences describing it.",
-  // thumbnail: "assets/post-placeholder.svg",   // optional — YouTube auto-derives one from the URL if omitted; non-YouTube entries fall back to this neutral placeholder (not a personal photo) if you don't set one
+  thumbnail: "assets/posts/your-project-slug/hero.jpg",  // optional — falls back to assets/post-placeholder.svg (never a personal photo) if omitted
 },
 ```
+
+Writing style for post copy (confirmed with the site owner): no em dashes, no emojis, avoid "it's
+not X, it's Y" and other LLM tells, natural flowing prose over short staccato sentences.
 
 ### 2. Add a certification → `about.html`
 
@@ -186,7 +208,7 @@ The hero (`<section class="hero">`) and the "story" section (`<section class="se
 ## Styling / design tokens
 
 - [css/tokens.css](css/tokens.css) — brand colors (indigo `#5156be` primary, green `#2ab57d` actions, sky `#4ba6ef` info), fonts (Newsreader for display/headings, Hanken Grotesk for body, JetBrains Mono for labels), spacing scale, and both light/dark theme variables. These tokens are shared with the Avatar project's design system, so the two sites read as one brand — avoid introducing new one-off colors.
-- [css/site.css](css/site.css) — all component and layout CSS (`.post-card`, `.entry`, `.cert-entry`, `.journey-card`, `.faq-item`, `.card`, `.chip`, buttons, nav, etc.). Reuse an existing class rather than inventing new CSS where possible.
+- [css/site.css](css/site.css) — all component and layout CSS (`.post-card`, `.entry`, `.cert-entry`, `.journey-card`, `.faq-item`, `.card`, `.chip`, buttons, nav, etc.), plus a "Post detail pages" section (`.post-detail-hero`, `.stat-grid`, `.post-gallery`, `.video-embed`, `.resource-grid`, `.post-callout`) used by every project page. Reuse an existing class rather than inventing new CSS where possible.
 
 ## Deployment / redeploying
 
