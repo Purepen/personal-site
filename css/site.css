@@ -369,6 +369,21 @@ blockquote.quote cite { display: block; margin-top: var(--space-3); font-family:
 
 .related-posts { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-4); }
 
+/* ---- Contact form ---- */
+.form-field { display: flex; flex-direction: column; gap: var(--space-2); margin-bottom: var(--space-4); }
+.form-field label { font-size: var(--text-sm); font-weight: 600; color: var(--text); }
+.form-field input, .form-field textarea {
+  font-family: var(--font-sans); font-size: var(--text-base); color: var(--text);
+  background: var(--surface-1); border: 1px solid var(--border); border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4); outline: none; width: 100%;
+  transition: border-color var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out);
+}
+.form-field input:focus, .form-field textarea:focus {
+  border-color: var(--indigo-line); box-shadow: 0 0 0 3px var(--focus-ring);
+}
+.form-field textarea { resize: vertical; min-height: 140px; font-family: var(--font-sans); }
+.form-note { font-size: var(--text-xs); color: var(--text-faint); margin-top: var(--space-2); }
+
 /* ---- Footer ---- */
 .site-footer {
   border-top: 1px solid var(--hairline); padding: var(--space-7) 0;

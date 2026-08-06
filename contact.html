@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book a Call | Micheal Olaniyi</title>
+  <meta name="description" content="Get in touch with Micheal Olaniyi to talk about a project, a role, or a collaboration." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+  <div class="page-wrap">
+    <header class="site-nav">
+      <div class="site-nav__inner">
+        <a class="brand" href="index.html">Micheal Olaniyi</a>
+        <nav class="nav-right">
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="posts.html">Posts</a></li>
+            <li><a href="avatar.html">Avatar</a></li>
+          </ul>
+          <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <svg class="icon"><use href="assets/icons.svg#i-menu"></use></svg>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="section" style="border-top:none; padding-bottom: var(--space-4);">
+          <p class="eyebrow">Get in touch</p>
+          <h1 class="display" style="font-size:var(--text-2xl); margin-bottom:var(--space-3);">Book a call</h1>
+          <p style="color:var(--text-muted); max-width:60ch;">
+            Tell me a little about what you're working on and I'll get back to you to find a time
+            that works. Sending this opens your email app with everything already filled in, so
+            nothing goes through a form backend somewhere, it goes straight to my inbox from yours.
+          </p>
+        </section>
+
+        <section class="section" style="border-top:none;">
+          <div class="chip-row" style="margin-bottom: var(--space-7);">
+            <a class="chip" href="mailto:olaniyimicheal1376@gmail.com">
+              <svg class="icon icon--sm"><use href="assets/icons.svg#i-mail"></use></svg>
+              olaniyimicheal1376@gmail.com
+            </a>
+            <a class="chip" href="https://wa.me/2348174223657" target="_blank" rel="noopener">WhatsApp</a>
+            <a class="chip" href="https://linkedin.com/in/micheal-olaniyi" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+
+          <div class="card" style="max-width:60ch;">
+            <form id="contactForm">
+              <div class="form-field">
+                <label for="cfName">Your name</label>
+                <input type="text" id="cfName" name="name" required />
+              </div>
+              <div class="form-field">
+                <label for="cfEmail">Your email</label>
+                <input type="email" id="cfEmail" name="email" required />
+              </div>
+              <div class="form-field">
+                <label for="cfMessage">What's on your mind?</label>
+                <textarea id="cfMessage" name="message" required placeholder="A bit about the project, the role, or what you'd like to talk through."></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary">
+                Send message
+                <svg class="icon icon--sm"><use href="assets/icons.svg#i-send"></use></svg>
+              </button>
+              <p class="form-note">This opens your email app with the message pre-filled. Review it and hit send from there, nothing is submitted automatically.</p>
+            </form>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <span>&copy; 2026 Micheal Olaniyi</span>
+        <a class="btn btn--indigo btn--sm" href="avatar.html">Chat with my digital twin</a>
+      </div>
+    </footer>
+  </div>
+  <script src="js/nav.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>
