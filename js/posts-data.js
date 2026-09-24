@@ -36,7 +36,7 @@ var POSTS = [
     title: "MamaCare: teaching a cohort to ship an ML + LLM app",
     url: "mamacare-mentorship.html",
     date: "2026",
-    excerpt: "A three-month mentorship project for 3MTT and WeSonline students: a maternal health risk model, wrapped in an LLM advisor, shipped live.",
+    excerpt: "An 8-week mentorship project for 3MTT and WeSonline students: a maternal health risk model, wrapped in an LLM advisor, shipped live.",
     thumbnail: "assets/post-placeholder.svg",
   },
   {

@@ -119,7 +119,7 @@ Notes:
 - Drop the thumbnail image into `assets/certs/` first — match the filename in `src`.
 - The `entry__date` line and the description are both optional/flexible — several existing entries skip `entry__date` and just fold the issuer/date into `entry__desc` (e.g. `<p class="entry__desc">micro1 Recruiting, May 2026</p>`) when there's no separate certificate link.
 - If there's no verifiable link, drop the `<a>` wrapper and just use a plain `<span class="entry__title">`.
-- Update the **"N in total"** count just under the section heading (`<p ...>18 in total.</p>`) after adding/removing.
+- Update the **"N in total"** count just under the section heading (`<p ...>19 in total.</p>`) after adding/removing.
 
 ### 3. Add a project → `about.html` ("Projects I'm proud of")
 
