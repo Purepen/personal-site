@@ -37,8 +37,7 @@
           <h1 class="display" style="font-size:var(--text-2xl); margin-bottom:var(--space-3);">Book a call</h1>
           <p style="color:var(--text-muted); max-width:60ch;">
             Tell me a little about what you're working on and I'll get back to you to find a time
-            that works. Sending this opens your email app with everything already filled in, so
-            nothing goes through a form backend somewhere, it goes straight to my inbox from yours.
+            that works. Your message comes straight to my inbox.
           </p>
         </section>
 
@@ -66,11 +65,12 @@
                 <label for="cfMessage">What's on your mind?</label>
                 <textarea id="cfMessage" name="message" required placeholder="A bit about the project, the role, or what you'd like to talk through."></textarea>
               </div>
+              <input type="checkbox" name="botcheck" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
               <button type="submit" class="btn btn--primary">
                 Send message
                 <svg class="icon icon--sm"><use href="assets/icons.svg#i-send"></use></svg>
               </button>
-              <p class="form-note">This opens your email app with the message pre-filled. Review it and hit send from there, nothing is submitted automatically.</p>
+              <p class="form-status" id="cfStatus" role="status" aria-live="polite" hidden></p>
             </form>
           </div>
         </section>

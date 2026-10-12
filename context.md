@@ -17,7 +17,7 @@ Four core pages, all sharing the same nav and `<head>` (fonts + `css/tokens.css`
 | `posts.html` | Project/post grid + FAQ list. Each card links to its own detail page in the repo root (e.g. `ai-banking-assistant.html`), not out to an external site |
 | `avatar.html` | Embeds the separate Avatar chatbot project via iframe |
 | `<project-slug>.html` | One per project post (11 as of 2026-08-06) - the deep-dive write-up, screenshots/video, and download links for that project |
-| `contact.html` | "Book a call" landing page. Deliberately **not** in the main nav - the only way in is the green "Book a call" button under the photo on `index.html`. The form has no backend; `js/contact.js` builds a `mailto:` link from the fields and hands off to the visitor's email app on submit |
+| `contact.html` | "Book a call" landing page. Deliberately **not** in the main nav - the only way in is the green "Book a call" button under the photo on `index.html`. The form posts to Web3Forms (free, no backend of our own), which emails each message to olaniyimicheal1376@gmail.com. The access key is the `ACCESS_KEY` constant at the top of `js/contact.js`; it's public by design. If sending fails, the page shows the email address as a fallback |
 
 If you ever add a 6th *type* of page, copy the header/nav block from any existing page verbatim, and add a matching `<li><a href="newpage.html">...</a></li>` to the `nav-links` list on **all** pages (there's no shared template - it's duplicated by hand in each file).
 
