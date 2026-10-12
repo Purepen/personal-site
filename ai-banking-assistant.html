@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AI Banking Assistant | Micheal Olaniyi</title>
-  <meta name="description" content="A voice-first banking assistant with two-factor authentication, 8 banking tools, and sub-2-second responses, built with GPT-4o-mini, Whisper, and Gradio." />
+  <meta name="description" content="A voice-first banking assistant with two-factor authentication, 8 specialized agents, and sub-2-second responses, built with GPT-4o-mini, Whisper, and Gradio." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -72,17 +72,17 @@
             <p>
               So that's what I built. The AI Banking Assistant is a full-stack application on top of
               OpenAI's GPT-4o-mini, wired up to a proper two-factor authentication flow, 8 specialized
-              banking tools, and a voice pipeline (Whisper for speech-to-text, TTS-1 for the reply
-              spoken back). It runs against a relational SQLite database seeded with 700 mock customers
-              and over 1,000 transactions, so the numbers you see in the demo are real query results,
+              agents, and a voice pipeline (Whisper for speech-to-text, TTS-1 for the reply
+              spoken back). It serves 70+ users and runs against a relational SQLite database with
+              over 1,000 transactions, so the numbers you see in the demo are real query results,
               not scripted responses.
             </p>
           </div>
 
           <div class="stat-grid">
-            <div class="stat-tile"><span class="stat-tile__value">700</span><span class="stat-tile__label">mock customers</span></div>
+            <div class="stat-tile"><span class="stat-tile__value">70+</span><span class="stat-tile__label">users</span></div>
             <div class="stat-tile"><span class="stat-tile__value">1,000+</span><span class="stat-tile__label">transactions</span></div>
-            <div class="stat-tile"><span class="stat-tile__value">8</span><span class="stat-tile__label">banking tools</span></div>
+            <div class="stat-tile"><span class="stat-tile__value">8</span><span class="stat-tile__label">specialized agents</span></div>
             <div class="stat-tile"><span class="stat-tile__value">&lt;2s</span><span class="stat-tile__label">response time</span></div>
           </div>
 
@@ -101,7 +101,7 @@
             <h2>Once you're in: the model decides what to do</h2>
             <p>
               This is where function calling earns its keep. GPT-4o-mini reads the request, figures out
-              the intent, and picks from 8 registered tools: check a balance, list all accounts, pull
+              the intent, and routes to one of 8 specialized agents: check a balance, list all accounts, pull
               recent transactions, search transactions by amount or date range, or assess loan
               eligibility against a credit score and income. The model extracts whatever parameters it
               needs straight from the sentence you typed or said, runs a parameterized query against
